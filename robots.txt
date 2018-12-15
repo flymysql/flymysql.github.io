@@ -1,0 +1,6 @@
+# welcome to : me.idealli.com
+User-agent: *
+Allow: /
+Allow: /archives/
+
+Sitemap: https://me.idealli.com/sitemap.xml 

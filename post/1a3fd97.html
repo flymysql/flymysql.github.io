@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="google-site-verification" content="ApseeiG36ij_4IYaQrV43na9th2WZ3v5YewzRwpBb0U" />
+<meta name="baidu-site-verification" content="JgzeBqFF7u" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<meta name="referrer" content="never">
+
+  <meta name="keywords" content="教程,前端," />
+
+
+
+<style>
+
+
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/icon.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="教程,前端," />
+
+
+
+
+
+  <link rel="alternate" href="/rss.xml" title="兰州小红鸡" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="之前用的是spf13的方案 不过自己也删删减减了好多 就修改成比较适合自己的 其中vim-scripts是vim的一些基本插件，包括语法高亮的支持、缩进等等。 当然我也可以使用其他的安装命令 sudo apt-get install vim sudo apt-get install vim-gtk 等等，其实本质都是相同的，只是安装的包多包少的问题 其他Linux发行版用户亦可使用自家的包管理器进">
+<meta name="keywords" content="教程,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows上的vim配置，打造超级舒心又有逼格的编辑器">
+<meta property="og:url" content="https://me.idealli.com/post/1a3fd97.html">
+<meta property="og:site_name" content="兰州小红鸡">
+<meta property="og:description" content="之前用的是spf13的方案 不过自己也删删减减了好多 就修改成比较适合自己的 其中vim-scripts是vim的一些基本插件，包括语法高亮的支持、缩进等等。 当然我也可以使用其他的安装命令 sudo apt-get install vim sudo apt-get install vim-gtk 等等，其实本质都是相同的，只是安装的包多包少的问题 其他Linux发行版用户亦可使用自家的包管理器进">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-21T01:03:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="windows上的vim配置，打造超级舒心又有逼格的编辑器">
+<meta name="twitter:description" content="之前用的是spf13的方案 不过自己也删删减减了好多 就修改成比较适合自己的 其中vim-scripts是vim的一些基本插件，包括语法高亮的支持、缩进等等。 当然我也可以使用其他的安装命令 sudo apt-get install vim sudo apt-get install vim-gtk 等等，其实本质都是相同的，只是安装的包多包少的问题 其他Linux发行版用户亦可使用自家的包管理器进">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '兰州小红鸡'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://me.idealli.com/post/1a3fd97.html"/>
+
+
+
+
+
+  <title>windows上的vim配置，打造超级舒心又有逼格的编辑器 | 兰州小红鸡</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7c663a86931cb778dfde573e7f863042";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans" style="  margin-left: 0px;margin-right: 0px;padding-left: 0px;padding-right: 0px;">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+  
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="top-scroll-bar"></div>
+    
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+     <!--  <img src="/images/favicon-16x16-next.png" style="height: 40px; width: 40px;margin: 0px;"> -->
+      
+      <img  src="/images/headerico.png" width="250px">
+       <!-- <span class="logo-line-before"><i></i></span> -->
+        <!-- <span class="site-title">兰州小红鸡</span> -->
+        <!-- <span class="logo-line-after"><i></i></span>  -->
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">小鸡的博客</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu" style="font-size: 16px;">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-资源">
+          <a href="/tags/%E8%B5%84%E6%BA%90/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-google"></i> <br />
+            
+            资源
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-订阅">
+          <a href="/email/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-envelope"></i> <br />
+            
+            订阅
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search" style="">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://me.idealli.com/post/1a3fd97.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="兰州小红鸡">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/37113068?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="兰州小红鸡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">windows上的vim配置，打造超级舒心又有逼格的编辑器</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-21T09:03:49+08:00">
+                2018-06-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-21T09:03:49+08:00">
+                2018-06-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C/C++</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-C/html-css/" itemprop="url" rel="index">
+                    <span itemprop="name">html/css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/post/1a3fd97.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/post/1a3fd97.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/post/1a3fd97.html" class="leancloud_visitors" data-flag-title="windows上的vim配置，打造超级舒心又有逼格的编辑器">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 2<span class="leancloud-visitors-count"></span>℃
+             </span>
+          
+
+          
+
+          
+          <br>
+         <span class="post-wordcount" >
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>之前用的是spf13的方案 不过自己也删删减减了好多 就修改成比较适合自己的 其中vim-scripts是vim的一些基本插件，包括语法高亮的支持、缩进等等。 当然我也可以使用其他的安装命令 sudo apt-get install vim sudo apt-get install vim-gtk 等等，其实本质都是相同的，只是安装的包多包少的问题 其他Linux发行版用户亦可使用自家的包管理器进行安装vim，这里我们就不多说了，我们下面讲下源码安装vim的过程</p>
+<p>源码安装vim</p>
+<h2 id="more"><a class="header-anchor" href="#more">¶</a><a id="more"></a></h2>
+<hr>
+<h3 id="下载源码包"><a class="header-anchor" href="#下载源码包">¶</a>下载源码包</h3>
+<p>到<a href="ftp://ftp.vim.org/pub/vim/unix/" target="_blank" rel="noopener">ftp://ftp.vim.org/pub/vim/unix/</a>下载最新的vim包，当前我下载时最新版是vim-7.4</p>
+<h3 id="解压缩源码包"><a class="header-anchor" href="#解压缩源码包">¶</a>解压缩源码包</h3>
+<p>解压至 ~/downloads/vim74/</p>
+<pre><code>tar -xjvf vim-7.4.tar.bz2
+</code></pre>
+<h3 id="编译安装"><a class="header-anchor" href="#编译安装">¶</a>编译安装</h3>
+<p>进入解压缩的源码目录</p>
+<pre><code>cd ~/downloads/vim74/
+</code></pre>
+<p>设置Vim源码的编译属性</p>
+<pre><code>./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr
+</code></pre>
+<!--more-->
+<p>其中参数说明如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">–with-features=huge：支持最大特性 –enable-rubyinterp：启用Vim对ruby编写的插件的支持 –enable-pythoninterp：启用Vim对python编写的插件的支持 –enable-luainterp：启用Vim对lua编写的插件的支持 –enable-perlinterp：启用Vim对perl编写的插件的支持 –enable-multibyte：多字节支持 可以在Vim中输入中文 –enable-cscope：Vim对cscope支持 –enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim –with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径 –prefix=/usr：编译安装路径 需要重新配置时，可以输入 make distclean #清理一下上一次编译生成的所有文件，这些其实都是GNU Make的命令我们就不细讲了</span><br></pre></td></tr></table></figure>
+<pre><code>sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74
+
+sudo make install
+</code></pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">" CUSTOMIZE SETTINGS</span></span><br><span class="line"><span class="string">====================</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span><span class="built_in">set</span> wrap <span class="string">" 自动折行</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> macOS: brew tap caskroom/fonts &amp;&amp; brew cask install font-hack-nerd-font <span class="string">"set guifont=Knack:h18</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">let g:indent guides auto_colors = 1 "</span>colorscheme wombat <span class="string">"颜色方案</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set termencoding=utf-8 autocmd VimEnter * NERDTree set encoding=utf-8 "</span> 编码设置 <span class="built_in">set</span> fileencodings=utf-8,ucs-bom,<span class="built_in">shift</span>-jis,gb18030,gbk,gb2312,cp936,utf-16,big5,euc-jp,latin1 <span class="built_in">set</span> langmenu=zn CN.UTF-8 <span class="built_in">set</span> helplang=cn <span class="string">" 语言设置 "</span>inoremap &lt;expr&gt;&lt;CR&gt; neosnippet<span class="comment">#expandable() ? neosnippet#mappings#expand or jump impl() : pumvisible() ? neocomplete#close popup() : "\\&lt;CR&gt;" nnoremap &lt;F6&gt; :TagbarToggle&lt;CR&gt; let g:tagbar autoclose=1 filetyp on</span></span><br><span class="line"></span><br><span class="line"><span class="string">"let g:tagbar ctags bin='/usr/bin/ctags' let g:tagbar width=27 "</span><span class="built_in">let</span> g:tagbar left=1</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> guiheadroom=0 <span class="built_in">let</span> g:indent guides <span class="built_in">enable</span> on vim_startup = 0</span><br><span class="line"></span><br><span class="line">autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar<span class="comment">#autoopen() let g:ycm server python interpreter='/usr/bin/python' let g:ycm global ycm extra conf='~/.vim/.ycm extra conf.py' let g:completor python_binary = '/path/to/python/with/jedi/installed'</span></span><br><span class="line"></span><br><span class="line">wincmd w autocmd VimEnter * wincmd w</span><br><span class="line"></span><br><span class="line"><span class="string">"更改配置后立即生效 autocmd BufWritePost <span class="variable">$MYVIMRC</span> source <span class="variable">$MYVIMRC</span></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>解决菜单乱码</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> <span class="variable">$VIMRUNTIME</span>/delmenu.vim <span class="built_in">source</span> <span class="variable">$VIMRUNTIME</span>/menu.vim</span><br><span class="line"></span><br><span class="line">imap kk &lt;C-k&gt; nmap 11 :bp&lt;CR&gt; nmap 22 :bn&lt;CR&gt; nmap qq :wq&lt;CR&gt;</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> guioptions-=L <span class="string">" 隐藏左侧滚动条 set guioptions-=r "</span> 隐藏右侧滚动条</span><br><span class="line"></span><br><span class="line"><span class="string">"新建.c,.h,.sh,.java文件，自动插入文件头</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span> au GUIEnter * simalt ~x</span><br><span class="line"></span><br><span class="line"><span class="string">""</span><span class="string">""</span><span class="string">"新文件标题"</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>新建.c,.h,.sh,.java文件，自动插入文件头</span><br><span class="line"></span><br><span class="line">autocmd BufNewFile *.cpp,*.\[ch\],*.sh,*.java <span class="built_in">exec</span> <span class="string">":call SetTitle()"</span></span><br><span class="line"></span><br><span class="line"><span class="string">""</span>定义函数SetTitle，自动插入文件头</span><br><span class="line"></span><br><span class="line">func SetTitle()</span><br><span class="line"></span><br><span class="line"><span class="string">"如果文件类型为.sh文件</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">if &amp;filetype == 'sh'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">call setline(1,"</span>\\<span class="comment">#########################################################################")</span></span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>), <span class="string">"\\# File Name: "</span>.expand(<span class="string">"%"</span>))</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+1, <span class="string">"\\# Author: 小金"</span>)</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+2, <span class="string">"\\# mail: flyphp@outlook.com"</span>)</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+3, <span class="string">"\\# Created Time: "</span>.strftime(<span class="string">"%c"</span>))</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+4, <span class="string">"\\#########################################################################"</span>)</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+5, <span class="string">"\\#!/bin/bash"</span>)</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+6, <span class="string">""</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">call setline(1, <span class="string">"/*************************************************************************"</span>)</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>), <span class="string">" &gt; File Name: "</span>.expand(<span class="string">"%"</span>))</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+1, <span class="string">" &gt; Author: 小金"</span>)</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+2, <span class="string">" &gt; Mail: flyphp@outlook.com "</span>)</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+3, <span class="string">" &gt; Created Time: "</span>.strftime(<span class="string">"%c"</span>))</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+4, <span class="string">" ************************************************************************/"</span>)</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+5, <span class="string">""</span>)</span><br><span class="line"></span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> &amp;filetype == <span class="string">'cpp'</span></span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+6, <span class="string">"#include &lt;iostream&gt;"</span>)</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+7, <span class="string">"using namespace std;"</span>)</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+8, <span class="string">""</span>) call append(line(<span class="string">"."</span>)+9, <span class="string">"int main()"</span>) call append(line(<span class="string">"."</span>)+10, <span class="string">"&#123;"</span>) call append(line(<span class="string">"."</span>)+11, <span class="string">" "</span>) call append(line(<span class="string">"."</span>)+12, <span class="string">" return 0;"</span>) call append(line(<span class="string">"."</span>)+13, <span class="string">"&#125;"</span>)</span><br><span class="line"></span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> &amp;filetype == <span class="string">'c'</span></span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+6, <span class="string">"#include &lt;stdio.h&gt;"</span>)</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+7, <span class="string">"#include &lt;stdlib.h&gt;"</span>)</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+8, <span class="string">""</span>) call append(line(<span class="string">"."</span>)+9, <span class="string">"int main()"</span>) call append(line(<span class="string">"."</span>)+10, <span class="string">"&#123;"</span>) call append(line(<span class="string">"."</span>)+11, <span class="string">" "</span>) call append(line(<span class="string">"."</span>)+12, <span class="string">" return 0;"</span>) call append(line(<span class="string">"."</span>)+13, <span class="string">"&#125;"</span>)</span><br><span class="line"></span><br><span class="line">endif <span class="keyword">if</span> &amp;filetype == <span class="string">'ch'</span> call append(line(<span class="string">"."</span>)+6, <span class="string">"#ifndef "</span>.expand(<span class="string">"%"</span>))</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+7, <span class="string">"#define "</span>.expand(<span class="string">"%"</span>))</span><br><span class="line"></span><br><span class="line">call append(line(<span class="string">"."</span>)+8, <span class="string">" "</span>) call append(line(<span class="string">"."</span>)+9, <span class="string">" "</span>) call append(line(<span class="string">"."</span>)+10, <span class="string">"#endif"</span>)</span><br><span class="line"></span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line"><span class="string">"新建文件后，自动定位到文件末尾</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">autocmd BufNewFile * normal G</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">endfunc</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>键盘命令</span><br><span class="line"></span><br><span class="line"><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span></span><br><span class="line"></span><br><span class="line">nmap &lt;leader&gt;w :w!&lt;cr&gt;</span><br><span class="line"></span><br><span class="line">nmap &lt;leader&gt;f :find&lt;cr&gt;</span><br><span class="line"></span><br><span class="line"><span class="string">" 映射全选+复制 ctrl+a</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">map &lt;C-A&gt; ggVGY</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">map! &lt;C-A&gt; &lt;Esc&gt;ggVGY</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">map &lt;F12&gt; gg=G</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 选中状态下 Ctrl+c 复制</span><br><span class="line"></span><br><span class="line">vmap &lt;C-c&gt; <span class="string">"+y</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>去空行</span><br><span class="line"></span><br><span class="line">nnoremap &lt;F2&gt; :g/^\\s*$/d&lt;CR&gt;</span><br><span class="line"></span><br><span class="line"><span class="string">"比较文件</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">nnoremap &lt;C-F2&gt; :vert diffsplit</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>新建标签</span><br><span class="line"></span><br><span class="line">map &lt;M-F2&gt; :tabnew&lt;CR&gt;</span><br><span class="line"></span><br><span class="line"><span class="string">"列出当前目录文件</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">map &lt;F3&gt; :tabnew .&lt;CR&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>打开树状文件目录</span><br><span class="line"></span><br><span class="line">map &lt;C-F3&gt; \\be</span><br><span class="line"></span><br><span class="line"><span class="string">"C，C++ 按F9编译运行</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">map &lt;F9&gt; :call CompileRunGcc()&lt;CR&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">func! CompileRunGcc()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">exec "</span>w<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">if &amp;filetype == 'c'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">exec "</span>!g++ % -o %&lt;<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">exec "</span>! ./%&lt;<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">elseif &amp;filetype == 'cpp'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">exec "</span>!g++ % -o %&lt;<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">exec "</span>! ./%&lt;<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">elseif &amp;filetype == 'java'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">exec "</span>!javac %<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">exec "</span>!java %&lt;<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">elseif &amp;filetype == 'sh'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">:!./%</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">endif</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">endfunc</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>C,C++的调试</span><br><span class="line"></span><br><span class="line">map &lt;F8&gt; :call Rungdb()&lt;CR&gt;</span><br><span class="line"></span><br><span class="line">func! Rungdb()</span><br><span class="line"></span><br><span class="line"><span class="built_in">exec</span> <span class="string">"w"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exec</span> <span class="string">"!g++ % -g -o %&lt;"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exec</span> <span class="string">"!gdb ./%&lt;"</span></span><br><span class="line"></span><br><span class="line">endfunc</span><br><span class="line"></span><br><span class="line"><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="string">""</span>实用设置</span><br><span class="line"></span><br><span class="line"><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 设置当文件被改动时自动载入</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> autoread</span><br><span class="line"></span><br><span class="line"><span class="string">" quickfix模式</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">autocmd FileType c,cpp map &lt;buffer&gt; &lt;leader&gt;&lt;space&gt; :w&lt;cr&gt;:make&lt;cr&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>代码补全</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> completeopt=preview,menu</span><br><span class="line"></span><br><span class="line"><span class="string">"允许插件</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">filetype plugin on</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>共享剪贴板</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> clipboard+=unnamed</span><br><span class="line"></span><br><span class="line"><span class="string">"从不备份</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set nobackup</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>make 运行</span><br><span class="line"></span><br><span class="line">:<span class="built_in">set</span> makeprg=g++\ -Wall\ \ %</span><br><span class="line"></span><br><span class="line"><span class="string">"自动保存</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set autowrite</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set ruler "</span> 打开状态栏标尺</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> cursorline <span class="string">" 突出显示当前行</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set magic "</span> 设置魔术</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> guioptions-=T <span class="string">" 隐藏工具栏</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set guioptions-=m "</span> 隐藏菜单栏</span><br><span class="line"></span><br><span class="line"><span class="string">"set statusline=\ %&lt;%F\[%1*%M%*%n%R%H\]%=\ %y\ %0(%&#123;&amp;fileformat&#125;\ %&#123;&amp;encoding&#125;\ %c:%l/%L%)\</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 设置在状态行显示的信息</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> foldcolumn=0</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> foldmethod=indent</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> foldlevel=3</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> foldenable <span class="string">" 开始折叠</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 不要使用vi的键盘模式，而是vim自己的</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> nocompatible</span><br><span class="line"></span><br><span class="line"><span class="string">" 语法高亮</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span><span class="built_in">set</span> syntax on <span class="built_in">set</span> term=ansi syntax on</span><br><span class="line"></span><br><span class="line"><span class="string">" 去掉输入错误的提示声音</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set noeb</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 在处理未保存或只读文件的时候，弹出确认</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> confirm</span><br><span class="line"></span><br><span class="line"><span class="string">" 自动缩进</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set autoindent</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set cindent</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> Tab键的宽度</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> tabstop=4</span><br><span class="line"></span><br><span class="line"><span class="string">" 统一缩进为4</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set softtabstop=4</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set shiftwidth=4</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 不要用空格代替制表符</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> noexpandtab</span><br><span class="line"></span><br><span class="line"><span class="string">" 在行和段开始处使用制表符</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set smarttab</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 显示行号</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> number</span><br><span class="line"></span><br><span class="line"><span class="string">" 历史记录数</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set history=1000</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>禁止生成临时文件</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> nobackup</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> noswapfile</span><br><span class="line"></span><br><span class="line"><span class="string">"搜索忽略大小写</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set ignorecase</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>搜索逐字符高亮</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> hlsearch</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> incsearch</span><br><span class="line"></span><br><span class="line"><span class="string">"行内替换</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set gdefault</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>编码设置</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> enc=utf-8</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> fencs=utf-8,ucs-bom,<span class="built_in">shift</span>-jis,gb18030,gbk,gb2312,cp936</span><br><span class="line"></span><br><span class="line"><span class="string">"语言设置</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set langmenu=zh_CN.UTF-8</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set helplang=cn</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 我的状态行显示的内容（包括文件类型和解码）</span><br><span class="line"></span><br><span class="line"><span class="string">"set statusline=%F%m%r%h%w\ \[FORMAT=%&#123;&amp;ff&#125;\]\ \[TYPE=%Y\]\ \[POS=%l,%v\]\[%p%%\]\ %&#123;strftime(\\"</span>%d/%m/%y\ -\ %H:%M\\<span class="string">")&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span><span class="built_in">set</span> statusline=\[%F\]%y%r%m%*%=\[Line:%l/%L,Column:%c\]\[%p%%\]</span><br><span class="line"></span><br><span class="line"><span class="string">" 总是显示状态行</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set laststatus=2</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 命令行（在状态行下）的高度，默认为1，这里是2</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> cmdheight=2</span><br><span class="line"></span><br><span class="line"><span class="string">" 侦测文件类型</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">filetype on</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 载入文件类型插件</span><br><span class="line"></span><br><span class="line">filetype plugin on</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> nospell</span><br><span class="line"></span><br><span class="line"><span class="string">" 为特定文件类型载入相关缩进文件</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">filetype indent on</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 保存全局变量</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> viminfo+=!</span><br><span class="line"></span><br><span class="line"><span class="string">" 带有如下符号的单词不要被换行分割</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set iskeyword+=_,$,@,%,#,-</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 字符间插入的像素行数目</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> linespace=0</span><br><span class="line"></span><br><span class="line"><span class="string">" 增强模式中的命令行自动完成操作</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set wildmenu</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 使回格键（backspace）正常处理indent, eol, start等</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> backspace=2</span><br><span class="line"></span><br><span class="line"><span class="string">" 允许backspace和光标键跨越行边界</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set whichwrap+=&lt;,&gt;,h,l</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> mouse=a</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> selection=exclusive</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> selectmode=mouse,key</span><br><span class="line"></span><br><span class="line"><span class="string">" 通过使用: commands命令，告诉我们文件的哪一行被改变过</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set report=0</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 在被分割的窗口间显示空白，便于阅读</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> fillchars=vert:\ ,stl:\ ,stlnc:\</span><br><span class="line"></span><br><span class="line"><span class="string">" 高亮显示匹配的括号</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set showmatch</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 匹配括号高亮的时间（单位是十分之一秒）</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> matchtime=1</span><br><span class="line"></span><br><span class="line"><span class="string">" 光标移动到buffer的顶部和底部时保持3行距离</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set scrolloff=3</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 为C程序提供自动缩进</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> smartindent</span><br><span class="line"></span><br><span class="line"><span class="string">" 高亮显示普通txt文件（需要txt.vim脚本）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">au BufRead,BufNewFile * setfiletype txt</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>自动补全</span><br><span class="line"></span><br><span class="line">:inoremap ( ()&lt;ESC&gt;i</span><br><span class="line"></span><br><span class="line">:inoremap ) &lt;c-r&gt;=ClosePair(<span class="string">')'</span>)&lt;CR&gt;</span><br><span class="line"></span><br><span class="line">:inoremap &#123; &#123;&lt;CR&gt;&#125;&lt;ESC&gt;O</span><br><span class="line"></span><br><span class="line">:inoremap &#125; &lt;c-r&gt;=ClosePair(<span class="string">'&#125;'</span>)&lt;CR&gt;</span><br><span class="line"></span><br><span class="line">:inoremap \[ \[\]&lt;ESC&gt;i</span><br><span class="line"></span><br><span class="line">:inoremap \] &lt;c-r&gt;=ClosePair(<span class="string">'\]'</span>)&lt;CR&gt;</span><br><span class="line"></span><br><span class="line">:inoremap <span class="string">" "</span><span class="string">"&lt;ESC&gt;i</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">:inoremap ' ''&lt;ESC&gt;i</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">function! ClosePair(char)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">if getline('.')\[col('.') - 1\] == a:char</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">return "</span>\\&lt;Right&gt;<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">else</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">return a:char</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">endif</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">endfunction</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">filetype plugin indent on</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>打开文件类型检测, 加了这句才可以用智能补全</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> completeopt=longest,menu</span><br><span class="line"></span><br><span class="line"><span class="string">" 判断当前系统类型是Windows还是Linux "</span> <span class="built_in">return</span> OS <span class="built_in">type</span>, eg: windows, or linux, mac, et.st.. <span class="keyword">function</span>! MySys( )</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> has(<span class="string">"win16"</span>) || has(<span class="string">"win32"</span>) || has(<span class="string">"win64"</span>) || has(<span class="string">"win95"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">return</span> <span class="string">"windows"</span></span><br><span class="line"></span><br><span class="line">elseif has(<span class="string">"unix"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">return</span> <span class="string">"linux"</span></span><br><span class="line"></span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">endfunction</span><br><span class="line"></span><br><span class="line"><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> CTags的设定</span><br><span class="line"></span><br><span class="line"><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">let Tlist Sort Type = "</span>name<span class="string">" "</span> 按照名称排序</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> Tlist Use Right_Window = 1 <span class="string">" 在左侧显示窗口</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">let Tlist Compart Format = 1 "</span> 压缩方式</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> Tlist Exist OnlyWindow = 1 <span class="string">" 如果只有一个buffer，kill窗口也kill掉buffer</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">let Tlist File Fold Auto Close = 0 "</span> 不要关闭其他文件的tags</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> Tlist Enable Fold_Column = 0 <span class="string">" 不要显示折叠树</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">autocmd FileType java set tags+=D:\\tools\\java\\tags</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>autocmd FileType h,cpp,cc,c <span class="built_in">set</span> tags+=D:\\tools\\cpp\\tags</span><br><span class="line"></span><br><span class="line"><span class="string">"let Tlist Show One_File=1 "</span>不同时显示多个文件的tag，只显示当前文件的</span><br><span class="line"></span><br><span class="line"><span class="string">"设置tags</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set tags=tags</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span><span class="built_in">set</span> autochdir</span><br><span class="line"></span><br><span class="line"><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="string">"其他东东</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span><span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="string">" minibufexpl插件的一般设置</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">let g:miniBufExplMapWindowNavVim = 1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">let g:miniBufExplMapWindowNavArrows = 1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">let g:miniBufExplMapCTabSwitchBufs = 1 let g:miniBufExplModSelTarget = 1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- <span class="string">" plugin - bufexplorer.vim Buffers切换 "</span> \\be 全屏方式查看全部打开的文件列表 <span class="string">" \\bv 左右方式查看 \\bs 上下方式查看 "</span>-----------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"><span class="string">"\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- "</span> plugin - taglist.vim 查看函数列表，需要ctags程序 <span class="string">" F4 打开隐藏taglist窗口 "</span>----------------------------------------------------------------- <span class="keyword">if</span> MySys() == <span class="string">"windows"</span> <span class="string">" 设定windows系统中ctags程序的位置 let Tlist Ctags Cmd = '"</span><span class="string">'.$VIMRUNTIME.'</span>/ctags.exe<span class="string">"' elseif MySys() == "</span>linux<span class="string">" "</span> 设定windows系统中ctags程序的位置 <span class="built_in">let</span> Tlist Ctags Cmd = <span class="string">'/usr/bin/ctags'</span> endif nnoremap &lt;silent&gt;&lt;F4&gt; :TlistToggle&lt;CR&gt;</span><br><span class="line"></span><br><span class="line">nnoremap k j nnoremap j h</span><br><span class="line"></span><br><span class="line"><span class="string">"默认打开Taglist let Tlist Auto Open=1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">let Tlist Show One File = 1 "</span> 不同时显示多个文件的tag，只显示当前文件的 <span class="built_in">let</span> Tlist Exit OnlyWindow = 1 <span class="string">" 如果taglist窗口是最后一个窗口，则退出vim let Tlist Use Right Window = 0 "</span> 在左侧窗口中显示taglist窗口 <span class="built_in">let</span> Tlist File Fold Auto Close=1 <span class="string">" 自动折叠当前非编辑文件的方法列表</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">let Tlist Auto Update = 1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">let Tlist Hightlight Tag On BufEnter = 1 let Tlist Enable Fold Column = 0 let Tlist Process File Always = 1 let Tlist Display Prototype = 0 let Tlist Compact Format = 1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- <span class="string">" plugin - mark.vim 给各种tags标记不同的颜色，便于观看调式的插件。 "</span> \\m mark or unmark the word under (or before) the cursor <span class="string">" \\r manually input a regular expression. 用于搜索. "</span> \\n clear this mark (i.e. the mark under the cursor), or clear all highlighted marks . <span class="string">" \\* 当前MarkWord的下一个 \\# 当前MarkWord的上一个 "</span> \\/ 所有MarkWords的下一个 \\? 所有MarkWords的上一个 <span class="string">"-----------------------------------------------------------------</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- <span class="string">" plugin - NERD tree.vim 以树状方式浏览系统中的文件和目录 "</span> :ERDtree 打开NERD tree :NERDtreeClose 关闭NERD_tree <span class="string">" o 打开关闭文件或者目录 t 在标签页中打开 "</span> T 在后台标签页中打开 ! 执行此文件 <span class="string">" p 到上层目录 P 到根目录 "</span> K 到第一个节点 J 到最后一个节点 <span class="string">" u 打开上层目录 m 显示文件系统菜单（添加、删除、移动操作） "</span> r 递归刷新当前目录 R 递归刷新当前根目录 <span class="string">"----------------------------------------------------------------- "</span> F3 NERDTree 切换 map &lt;F3&gt; :NERDTreeToggle&lt;CR&gt; imap &lt;F3&gt; &lt;ESC&gt;:NERDTreeToggle&lt;CR&gt;</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> NERDTreeWinSize=22 <span class="string">"----------------------------------------------------------------- "</span> plugin - NERD_commenter.vim 注释代码用的， <span class="string">" \[count\],cc 光标以下count行逐行添加注释(7,cc) "</span> \[count\],cu 光标以下count行逐行取消注释(7,cu) <span class="string">" \[count\],cm 光标以下count行尝试添加块注释(7,cm) "</span> ,cA 在行尾插入 /* */,并且进入插入模式。 这个命令方便写注释。 <span class="string">" 注：count参数可选，无则默认为选中行或当前行 "</span>----------------------------------------------------------------- <span class="built_in">let</span> NERDSpaceDelims=1 <span class="string">" 让注释符与语句之间留一个空格 let NERDCompactSexyComs=1 "</span> 多行注释时样子更好看</span><br><span class="line"></span><br><span class="line"><span class="string">"\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- "</span> plugin - DoxygenToolkit.vim 由注释生成文档，并且能够快速生成函数标准注释 <span class="string">"----------------------------------------------------------------- let g:DoxygenToolkit authorName="</span>Asins - asinsimple AT gmail DOT com<span class="string">" let g:DoxygenToolkit briefTag_funcName="</span>yes<span class="string">" map &lt;leader&gt;da :DoxAuthor&lt;CR&gt; map &lt;leader&gt;df :Dox&lt;CR&gt; map &lt;leader&gt;db :DoxBlock&lt;CR&gt; map &lt;leader&gt;dc a /* */&lt;LEFT&gt;&lt;LEFT&gt;&lt;LEFT&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- <span class="string">" plugin – ZenCoding.vim 很酷的插件，HTML代码生成 "</span> 插件最新版：http://github.com/mattn/zencoding-vim <span class="string">" 常用命令可看：http://nootn.com/blog/Tool/23/ "</span>-----------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"><span class="string">"\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- "</span> plugin – checksyntax.vim JavaScript常见语法错误检查 <span class="string">" 默认快捷方式为 F5 "</span>----------------------------------------------------------------- <span class="built_in">let</span> g:checksyntax_auto = 0 <span class="string">" 不自动检查</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span>\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- <span class="string">" plugin - NeoComplCache.vim 自动补全插件 "</span>----------------------------------------------------------------- <span class="built_in">let</span> g:AutoComplPop NotEnableAtStartup = 1 <span class="built_in">let</span> g:NeoComplCache EnableAtStartup = 1 <span class="built_in">let</span> g:NeoComplCache SmartCase = 1 <span class="built_in">let</span> g:NeoComplCache TagsAutoUpdate = 1 <span class="built_in">let</span> g:NeoComplCache EnableInfo = 1 <span class="built_in">let</span> g:NeoComplCache EnableCamelCaseCompletion = 1 <span class="built_in">let</span> g:NeoComplCache MinSyntaxLength = 3 <span class="built_in">let</span> g:NeoComplCache EnableSkipCompletion = 1 <span class="built_in">let</span> g:NeoComplCache SkipInputTime = <span class="string">'0.5'</span> <span class="built_in">let</span> g:NeoComplCache SnippetsDir = <span class="variable">$VIMFILES</span>.<span class="string">'/snippets'</span> <span class="string">" &lt;TAB&gt; completion. inoremap &lt;expr&gt;&lt;TAB&gt; pumvisible() ? "</span>\\&lt;C-n&gt;<span class="string">" : "</span>\\&lt;TAB&gt;<span class="string">" "</span> snippets expand key imap &lt;silent&gt; &lt;C<span class="_">-e</span>&gt; &lt;Plug&gt;(neocomplcache snippets expand) smap &lt;silent&gt; &lt;C<span class="_">-e</span>&gt; &lt;Plug&gt;(neocomplcache snippets expand)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    <div style="">
+      
+        	<br><br>
+<!-- 	<section style="width: 40px; height: 40px; border: 1px solid rgb(0, 0, 1); border-radius: 50%; margin-left: auto; margin-right: auto; text-align: center; line-height: 40px; margin-bottom: 5px; box-sizing: border-box;">
+	<p>
+		
+
+完</p>
+</section> -->
+
+<br><br><br>
+<img src="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/blog/111202.png" width="50%">
+<br>
+<br>
+
+<section data-role="outer" label="Powered by 135editor.com" style="font-size:16px;font-family:微软雅黑;"><section class="_135editor" data-tools="135编辑器" data-id="87861" style="border: 0px none; box-sizing: border-box;"><section class="layout" style="margin:0px auto;width:80%;" data-width="80%"><section><section style="margin:0 0 25px; text-align: justify;color: #7F7F7F; font-family: 微软雅黑; font-size: 12px; letter-spacing: 3px; line-height: 25.59375px;" class="135brush"><p style="text-align: center;">我是小鸡，这篇文章的标题是——windows上的vim配置，打造超级舒心又有逼格的编辑器 <br> 喜欢的话可以转载，不过记得标记出处<p style="text-align: center;">2018年06月21日</p></p></section></section></section></section></section>
+
+
+<br><br>
+      
+    </div>
+
+    
+
+    
+      <div style="">
+        
+<!--
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+
+
+<iframe width="468" height="60" src="/vultr.html" scrolling="no" frameborder="0"></iframe>
+
+<br>
+<a href="https://www.vultr.com/?ref=7446652" target="_blank">
+  <div style="text-align: center; background-color: #49b1f5;width: 300px;margin: auto; color: #fff;font-weight: 700; font-size: 18px;">vultr主机每月2.5美元起！</div>
+  </a>
+<br>
+  <button id="rewardButton" disable="enable" style="text-align: center;margin: auto; height: 36px;" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span style="text-align: center; height: 36px; font-size: 22px;font-weight: 800;">投币</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="兰州小红鸡 微信支付"/>
+        <p style="margin-top: 10px;font-weight: 600;">微信投币</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+-->
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/教程/" rel="tag">📜 教程</a>
+         
+          
+            <a href="/tags/前端/" rel="tag">📜 前端</a>
+         
+          
+
+        </div>
+
+
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/79ade34d.html" rel="next" title="挣钱要比想象的难">
+                <i class="fa fa-chevron-left"></i> 挣钱要比想象的难
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/e8e21b0a.html" rel="prev" title="一篇水文">
+                一篇水文 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+          
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+  <div class="tag-cloud">
+
+   <!-- <div class="tag-cloud-title">
+       目前共计 18 个标签
+   </div> -->
+   <div class="tag-cloud-tags" id="tags">
+     <a href="/tags/C/" style="font-size: 16px; color: #fff">C++</a> <a href="/tags/html/" style="font-size: 16px; color: #fff">html</a> <a href="/tags/javascript/" style="font-size: 16px; color: #fff">javascript</a> <a href="/tags/pat/" style="font-size: 16px; color: #fff">pat</a> <a href="/tags/sql/" style="font-size: 16px; color: #fff">sql</a> <a href="/tags/ssr/" style="font-size: 16px; color: #fff">ssr</a> <a href="/tags/vue-js/" style="font-size: 16px; color: #fff">vue.js</a> <a href="/tags/wordpress/" style="font-size: 16px; color: #fff">wordpress</a> <a href="/tags/前端/" style="font-size: 16px; color: #fff">前端</a> <a href="/tags/博客/" style="font-size: 16px; color: #fff">博客</a> <a href="/tags/微信小程序/" style="font-size: 16px; color: #fff">微信小程序</a> <a href="/tags/教程/" style="font-size: 16px; color: #fff">教程</a> <a href="/tags/日记/" style="font-size: 16px; color: #fff">日记</a> <a href="/tags/水文/" style="font-size: 16px; color: #fff">水文</a> <a href="/tags/算法/" style="font-size: 16px; color: #fff">算法</a> <a href="/tags/资源/" style="font-size: 16px; color: #fff">资源</a> <a href="/tags/邻家酒肆/" style="font-size: 16px; color: #fff">邻家酒肆</a> <a href="/tags/随想/" style="font-size: 16px; color: #fff">随想</a>
+   </div>
+ </div>
+ <br>
+ 
+ <script type="text/javascript">
+  // window.onload=function(){
+    var alltags=document.getElementById('tags');
+    var tags=alltags.getElementsByTagName('a');
+
+    for (var i = tags.length - 1; i >= 0; i--) {
+      var r=Math.floor(Math.random()*75+130);
+      var g=Math.floor(Math.random()*75+100);
+      var b=Math.floor(Math.random()*75+80);
+      tags[i].style.background = "rgb("+r+","+g+","+b+")";
+    }
+  // }
+
+ </script>
+
+ <div class="a2a_kit a2a_kit_size_24 a2a_floating_style a2a_vertical_style" data-a2a-scroll-show="1500" style="left:0px; bottom:80px;">
+<a class="a2a_button_qzone"></a>
+<a class="a2a_button_sina_weibo"></a>
+<a class="a2a_button_wechat"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments" >
+    </div>
+  
+
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars1.githubusercontent.com/u/37113068?s=460&v=4"
+                alt="兰州小红鸡" />
+            
+              <p class="site-author-name" itemprop="name">兰州小红鸡</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">110</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/rss.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element" align="center" item-align="center" align-content="center">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/flymysql" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:flymysql@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/237199972/home?wvr=5" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/sinx2018" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#more"><span class="nav-number">1.</span> <span class="nav-text">¶</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载源码包"><span class="nav-number">1.1.</span> <span class="nav-text">¶下载源码包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压缩源码包"><span class="nav-number">1.2.</span> <span class="nav-text">¶解压缩源码包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译安装"><span class="nav-number">1.3.</span> <span class="nav-text">¶编译安装</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">闽ICP备18025365号&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">兰州小红鸡</span>
+
+  
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"> 
+      </i>
+    </span>
+    
+      <span class="post-meta-item-text">已经写了</span>
+    
+    <span title="Site words total count">141.2k字</span>
+  
+</div>
+
+
+  
+
+
+
+  <span class="post-meta-divider" style="text-align: left;">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275378430'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1275378430%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+<a href="https://leancloud.cn/dashboard/data.html?appid=CODUI37tPwbXtbN2NzB64mhy-gzGzoHsz#/Counter">我爱你</a>,
+<a href="https://flymysql.leanapp.cn/comments">再见！</a></span>
+
+
+
+
+  
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/custom.js?v=5.1.4"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="/js/src/valine.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'CODUI37tPwbXtbN2NzB64mhy-gzGzoHsz',
+        appKey: 'zM95HhjgwuUXtm9jsasnKFyr',
+        placeholder: '✍撰写评论...',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("CODUI37tPwbXtbN2NzB64mhy-gzGzoHsz", "zM95HhjgwuUXtm9jsasnKFyr");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击 -->
+ <script>
+ !function(e,t,a){function r(){for(var e=0;e<n.length;e++)n[e].alpha<=0?(t.body.removeChild(n[e].el),n.splice(e,1)):(n[e].y--,n[e].scale+=.004,n[e].alpha-=.013,n[e].el.style.cssText="left:"+n[e].x+"px;top:"+n[e].y+"px;opacity:"+n[e].alpha+";transform:scale("+n[e].scale+","+n[e].scale+") rotate(45deg);background:"+n[e].color+";z-index:99999");requestAnimationFrame(r)}var n=[];e.requestAnimationFrame=e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)},function(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),function(){var a="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){a&&a(),function(e){var a=t.createElement("div");a.className="heart",n.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}),t.body.appendChild(a)}(e)}}(),r()}(window,document);
+
+</script>
+<script type="text/javascript">
+	function warning()
+	{ 
+		if(navigator.userAgent.indexOf("MSIE")>0) 
+		{ 
+			art.dialog.alert("复 制 成 功 ！   \n\n若 要 转 载 请 务 必 保 留 原 文 链 接 ！\n注 明 作 者 及 来 源 \n\n谢 谢 合 作 ！      (๑•̀ㅂ•́)و✧"); 
+		} 
+		else 
+		{ 
+			alert("复 制 成 功 ！   \n\n若 要 转 载 请 务 必 保 留 原 文 链 接 ！\n注 明 作 者 及 来 源 \n\n谢 谢 合 作 ！      (๑•̀ㅂ•́)و✧"); 
+		}
+}
+document.body.oncopy=function()
+{
+	warning();
+}
+
+document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState == 'hidden') {
+        normal_title = document.title;
+        document.title = '你知道hello world有几种写法？';
+    } else document.title = normal_title;
+});
+
+</script> 
+
+
+
+
+</body>
+</html>

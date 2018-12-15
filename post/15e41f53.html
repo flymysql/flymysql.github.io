@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="google-site-verification" content="ApseeiG36ij_4IYaQrV43na9th2WZ3v5YewzRwpBb0U" />
+<meta name="baidu-site-verification" content="JgzeBqFF7u" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<meta name="referrer" content="never">
+
+  <meta name="keywords" content="Dijkstra单源最短路径算法" />
+
+
+
+<meta name="description" content="Dijkstra单源最短路径算法" />
+
+<style>
+
+
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/icon.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Dijkstra单源最短路径算法" />
+
+
+
+
+
+  <link rel="alternate" href="/rss.xml" title="兰州小红鸡" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="算法动态演示地址:https://me.idealli.com/others/Dijkstra.html 今天用c++撸了一遍Dijkstra单源最短路径算法，做个记录 先看下算法的描述  ¶问题描述 给定一个带权有向图 G=(V,E) ，其中每条边的权是一个非负实数。另外，还给定 V 中的一个顶点，称为源。现在我们要计算从源到所有其他各顶点的最短路径长度。这里的长度是指路上各边权之和。这个问题">
+<meta name="keywords" content="Dijkstra单源最短路径算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dijkstra单源最短路径算法">
+<meta property="og:url" content="https://me.idealli.com/post/15e41f53.html">
+<meta property="og:site_name" content="兰州小红鸡">
+<meta property="og:description" content="算法动态演示地址:https://me.idealli.com/others/Dijkstra.html 今天用c++撸了一遍Dijkstra单源最短路径算法，做个记录 先看下算法的描述  ¶问题描述 给定一个带权有向图 G=(V,E) ，其中每条边的权是一个非负实数。另外，还给定 V 中的一个顶点，称为源。现在我们要计算从源到所有其他各顶点的最短路径长度。这里的长度是指路上各边权之和。这个问题">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/blog/112401.png">
+<meta property="og:updated_time" content="2018-11-23T09:32:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dijkstra单源最短路径算法">
+<meta name="twitter:description" content="算法动态演示地址:https://me.idealli.com/others/Dijkstra.html 今天用c++撸了一遍Dijkstra单源最短路径算法，做个记录 先看下算法的描述  ¶问题描述 给定一个带权有向图 G=(V,E) ，其中每条边的权是一个非负实数。另外，还给定 V 中的一个顶点，称为源。现在我们要计算从源到所有其他各顶点的最短路径长度。这里的长度是指路上各边权之和。这个问题">
+<meta name="twitter:image" content="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/blog/112401.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '兰州小红鸡'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://me.idealli.com/post/15e41f53.html"/>
+
+
+
+
+
+  <title>Dijkstra单源最短路径算法 | 兰州小红鸡</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7c663a86931cb778dfde573e7f863042";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans" style="  margin-left: 0px;margin-right: 0px;padding-left: 0px;padding-right: 0px;">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+  
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="top-scroll-bar"></div>
+    
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+     <!--  <img src="/images/favicon-16x16-next.png" style="height: 40px; width: 40px;margin: 0px;"> -->
+      
+      <img  src="/images/headerico.png" width="250px">
+       <!-- <span class="logo-line-before"><i></i></span> -->
+        <!-- <span class="site-title">兰州小红鸡</span> -->
+        <!-- <span class="logo-line-after"><i></i></span>  -->
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">小鸡的博客</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu" style="font-size: 16px;">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-资源">
+          <a href="/tags/%E8%B5%84%E6%BA%90/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-google"></i> <br />
+            
+            资源
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-订阅">
+          <a href="/email/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-envelope"></i> <br />
+            
+            订阅
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search" style="">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://me.idealli.com/post/15e41f53.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="兰州小红鸡">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/37113068?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="兰州小红鸡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Dijkstra单源最短路径算法</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-23T17:32:33+08:00">
+                2018-11-23
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-23T17:32:33+08:00">
+                2018-11-23
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/post/15e41f53.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/post/15e41f53.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/post/15e41f53.html" class="leancloud_visitors" data-flag-title="Dijkstra单源最短路径算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 2<span class="leancloud-visitors-count"></span>℃
+             </span>
+          
+
+          
+
+          
+          <br>
+         <span class="post-wordcount" >
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>算法动态演示地址:<a href="https://me.idealli.com/others/Dijkstra.html">https://me.idealli.com/others/Dijkstra.html</a><br>
+今天用<code>c++</code>撸了一遍Dijkstra单源最短路径算法，做个记录<br>
+先看下算法的描述</p>
+</blockquote>
+<h3 id="问题描述"><a class="header-anchor" href="#问题描述">¶</a>问题描述</h3>
+<p>给定一个带权有向图 G=(V,E) ，其中每条边的权是一个非负实数。另外，还给定 V 中的一个顶点，称为源。现在我们要计算从源到所有其他各顶点的最短路径长度。这里的长度是指路上各边权之和。这个问题通常称为单源最短路径问题。<br>
+Dijkstra算法的解决方案</p>
+<p>Dijkstra提出按各顶点与源点v间的路径长度的递增次序，生成到各顶点的最短路径的算法。既先求出长度最短的一条最短路径，再参照它求出长度次短的一条最短路径，依次类推，直到从源点v 到其它各顶点的最短路径全部求出为止。</p>
+<a id="more"></a>
+<h3 id="dijkstra算法的解题思想"><a class="header-anchor" href="#dijkstra算法的解题思想">¶</a>Dijkstra算法的解题思想</h3>
+<p>将图G中所有的顶点V分成两个顶点集合S和T。以v为源点已经确定了最短路径的终点并入S集合中，S初始时只含顶点v,T则是尚未确定到源点v最短路径的顶点集合。然后每次从T集合中选择S集合点中到T路径最短的那个点，并加入到集合S中，并把这个点从集合T删除。直到T集合为空为止。</p>
+<h3 id="具体步骤"><a class="header-anchor" href="#具体步骤">¶</a>具体步骤</h3>
+<ol>
+<li>
+<p>选一顶点v为源点，并视从源点v出发的所有边为到各顶点的最短路径（确定数据结构：因为求的是最短路径，所以①就要用一个记录从源点v到其它各顶点的路径长度数组dist[],开始时，dist是源点v到顶点i的直接边长度，即dist中记录的是邻接阵的第v行。②设一个用来记录从源点到其它顶点的路径数组path[],path中存放路径上第i个顶点的前驱顶点）。</p>
+</li>
+<li>
+<p>在上述的最短路径dist[]中选一条最短的，并将其终点（即v,k）k加入到集合s中。</p>
+</li>
+<li>
+<p>调整T中各顶点到源点v的最短路径。 因为当顶点k加入到集合s中后，源点v到T中剩余的其它顶点j就又增加了经过顶点k到达j的路径,这条路径可能要比源点v到j原来的最短的还要短。调整方法是比较dist[k]+g[k,j]与dist[j]，取其中的较小者。</p>
+</li>
+<li>
+<p>再选出一个到源点v路径长度最小的顶点k,从T中删去后加入S中，再回去到第三步，如此重复，直到集合S中的包含图G的所有顶点。</p>
+</li>
+</ol>
+<h3 id="c-代码"><a class="header-anchor" href="#c-代码">¶</a>C++代码</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxvertextType 100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> gigantic 99999</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> vertextType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> edgeType;</span><br><span class="line"></span><br><span class="line"><span class="comment">//邻接矩阵</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    vertextType vex[MaxvertextType];</span><br><span class="line">    edgeType edge[MaxvertextType][MaxvertextType];</span><br><span class="line">    <span class="keyword">int</span> vexnum=MaxvertextType,arcnum;</span><br><span class="line">&#125;Mgraph;</span><br><span class="line"></span><br><span class="line"><span class="comment">//节点在数组中的下标</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getVex</span><span class="params">(Mgraph G,vertextType x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;G.vex[i]!=x;i++);</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//单源最短路径算法</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(Mgraph g,vertextType x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> vexnum=g.vexnum;</span><br><span class="line">    <span class="keyword">int</span> vex=getVex(g,x);</span><br><span class="line">    edgeType dist[vexnum];</span><br><span class="line">    <span class="keyword">int</span> path[vexnum];</span><br><span class="line">    path[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vexnum; ++i) &#123;</span><br><span class="line">        dist[i]=g.edge[vex][i];</span><br><span class="line">        <span class="keyword">if</span>(dist[i]!=gigantic)path[i]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">bool</span> S[vexnum];</span><br><span class="line">    S[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">int</span> dd,dvex=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; vexnum<span class="number">-1</span>; ++j) &#123;</span><br><span class="line">        dd=gigantic;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; vexnum; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(dist[i]&lt;dd &amp;&amp; !S[i]) &#123;</span><br><span class="line">                dd=dist[i];</span><br><span class="line">                dvex=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        S[dvex]= <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt; vexnum; ++k) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!S[k])&#123;</span><br><span class="line">                <span class="keyword">if</span> (dist[dvex]+g.edge[dvex][k]&lt;dist[k]) &#123;</span><br><span class="line">                    dist[k] = dist[dvex] + g.edge[dvex][k];</span><br><span class="line">                    path[k] = dvex;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">1</span>; m &lt; vexnum; ++m) &#123;</span><br><span class="line">        <span class="keyword">int</span> nowvex=m;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"\npath:"</span>&lt;&lt;g.vex[nowvex];</span><br><span class="line">        <span class="keyword">while</span>(path[nowvex]!=<span class="number">0</span>)&#123;</span><br><span class="line">            nowvex=path[nowvex];</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"&lt;-"</span>&lt;&lt;g.vex[nowvex];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"&lt;-"</span>&lt;&lt;g.vex[<span class="number">0</span>];</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"\tdistance:"</span>&lt;&lt;dist[m];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//图的初始化</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(Mgraph &amp; g)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;g.vexnum;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; g.vexnum; ++j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i==j)g.edge[i][j]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> g.edge[i][j]=gigantic;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p class="tip">
+感觉代码还是有点臃肿了
+晚点打算再写一个<code>JavaScript</code>实现的算法
+结合html来制作图形界面
+</p>
+<h3 id="2018-11-24更新"><a class="header-anchor" href="#2018-11-24更新">¶</a>2018-11-24更新</h3>
+<blockquote>
+<p>花了一早上写了<code>js</code>版本的，并能够动态演示过程<br>
+演示地址:<a href="https://me.idealli.com/others/Dijkstra.html">https://me.idealli.com/others/Dijkstra.html</a></p>
+</blockquote>
+<p><img src="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/blog/112401.png" alt="兰州小红鸡"></p>
+<h3 id="部分javascript代码"><a class="header-anchor" href="#部分javascript代码">¶</a>部分javascript代码</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var MaxvertextType = <span class="number">100</span></span><br><span class="line">var gigantic = <span class="number">99999</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//邻接矩阵</span></span><br><span class="line"><span class="function">function <span class="title">Mgraph</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.vex=<span class="keyword">new</span> Array();</span><br><span class="line">    <span class="keyword">this</span>.edge=<span class="keyword">new</span> Array();</span><br><span class="line">    <span class="keyword">this</span>.vexnum=MaxvertextType;</span><br><span class="line">    <span class="keyword">this</span>.arcnum=MaxvertextType;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">function <span class="title">getVex</span><span class="params">(G,x)</span></span>&#123;</span><br><span class="line">    var i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;G.vex[i]!=x;i++);</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//单源最短路径算法</span></span><br><span class="line"><span class="function">function <span class="title">Dijkstra</span><span class="params">(g,x)</span></span>&#123;</span><br><span class="line">    var vexnum=g.vexnum;</span><br><span class="line">    var vex=getVex(g,x);</span><br><span class="line">    var dist= <span class="keyword">new</span> Array();</span><br><span class="line">    var path = <span class="keyword">new</span> Array();</span><br><span class="line">    path[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (var i = <span class="number">0</span>; i &lt; vexnum; ++i) &#123;</span><br><span class="line">        dist[i]=g.edge[vex][i];</span><br><span class="line">        <span class="keyword">if</span>(dist[i]!=gigantic)path[i]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    var S = <span class="keyword">new</span> Array();</span><br><span class="line">    S[<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">    var dd;</span><br><span class="line">    var dvex=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (var j = <span class="number">0</span>; j &lt; vexnum-<span class="number">1</span>; ++j) &#123;</span><br><span class="line">        dd=gigantic;</span><br><span class="line">        <span class="keyword">for</span> (var i = <span class="number">1</span>; i &lt; vexnum; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(dist[i]&lt;dd &amp;&amp; !S[i]) &#123;</span><br><span class="line">                dd=dist[i];</span><br><span class="line">                dvex=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        S[dvex]= <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (var k = <span class="number">1</span>; k &lt; vexnum; ++k) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!S[k])&#123;</span><br><span class="line">                <span class="keyword">if</span> (dist[dvex]+g.edge[dvex][k]&lt;dist[k]) &#123;</span><br><span class="line">                    dist[k] = dist[dvex] + g.edge[dvex][k];</span><br><span class="line">                    path[k] = dvex;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (var m = <span class="number">1</span>; m &lt; vexnum; ++m) &#123;</span><br><span class="line">        var nowvex=m;</span><br><span class="line">        var str=<span class="string">"\npath:"</span>+g.vex[nowvex];</span><br><span class="line">        <span class="keyword">while</span>(path[nowvex]!=<span class="number">0</span>)&#123;</span><br><span class="line">            nowvex=path[nowvex];</span><br><span class="line">            str=str+<span class="string">"&lt;-"</span>+g.vex[nowvex];</span><br><span class="line">        &#125;</span><br><span class="line">        str=str+<span class="string">"&lt;-"</span>+g.vex[<span class="number">0</span>]+<span class="string">"\tdistance:"</span>+dist[m];</span><br><span class="line">        console.log(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//图的初始化</span></span><br><span class="line"><span class="function">function <span class="title">init</span><span class="params">(g)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(var i=<span class="number">0</span>;i&lt;g.vexnum;i++)&#123;</span><br><span class="line">        var temp=[];</span><br><span class="line">        <span class="keyword">for</span> (var j = <span class="number">0</span>; j &lt; g.vexnum; ++j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i==j) temp[j]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> temp[j]=gigantic;</span><br><span class="line">        &#125;</span><br><span class="line">        g.edge[i]=temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    <div style="">
+      
+        	<br><br>
+<!-- 	<section style="width: 40px; height: 40px; border: 1px solid rgb(0, 0, 1); border-radius: 50%; margin-left: auto; margin-right: auto; text-align: center; line-height: 40px; margin-bottom: 5px; box-sizing: border-box;">
+	<p>
+		
+
+完</p>
+</section> -->
+
+<br><br><br>
+<img src="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/blog/111202.png" width="50%">
+<br>
+<br>
+
+<section data-role="outer" label="Powered by 135editor.com" style="font-size:16px;font-family:微软雅黑;"><section class="_135editor" data-tools="135编辑器" data-id="87861" style="border: 0px none; box-sizing: border-box;"><section class="layout" style="margin:0px auto;width:80%;" data-width="80%"><section><section style="margin:0 0 25px; text-align: justify;color: #7F7F7F; font-family: 微软雅黑; font-size: 12px; letter-spacing: 3px; line-height: 25.59375px;" class="135brush"><p style="text-align: center;">我是小鸡，这篇文章的标题是——Dijkstra单源最短路径算法 <br> 喜欢的话可以转载，不过记得标记出处<p style="text-align: center;">2018年11月23日</p></p></section></section></section></section></section>
+
+
+<br><br>
+      
+    </div>
+
+    
+
+    
+      <div style="">
+        
+<!--
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+
+
+<iframe width="468" height="60" src="/vultr.html" scrolling="no" frameborder="0"></iframe>
+
+<br>
+<a href="https://www.vultr.com/?ref=7446652" target="_blank">
+  <div style="text-align: center; background-color: #49b1f5;width: 300px;margin: auto; color: #fff;font-weight: 700; font-size: 18px;">vultr主机每月2.5美元起！</div>
+  </a>
+<br>
+  <button id="rewardButton" disable="enable" style="text-align: center;margin: auto; height: 36px;" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span style="text-align: center; height: 36px; font-size: 22px;font-weight: 800;">投币</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="兰州小红鸡 微信支付"/>
+        <p style="margin-top: 10px;font-weight: 600;">微信投币</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+-->
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag">📜 C++</a>
+         
+          
+            <a href="/tags/算法/" rel="tag">📜 算法</a>
+         
+          
+            <a href="/tags/html/" rel="tag">📜 html</a>
+         
+          
+            <a href="/tags/前端/" rel="tag">📜 前端</a>
+         
+          
+            <a href="/tags/javascript/" rel="tag">📜 javascript</a>
+         
+          
+
+        </div>
+
+
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/1609338289.html" rel="next" title="使用腾讯云cdn加速博客">
+                <i class="fa fa-chevron-left"></i> 使用腾讯云cdn加速博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/456bc465.html" rel="prev" title="使用vue.js制作carousel跑马灯组件">
+                使用vue.js制作carousel跑马灯组件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+          
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+  <div class="tag-cloud">
+
+   <!-- <div class="tag-cloud-title">
+       目前共计 18 个标签
+   </div> -->
+   <div class="tag-cloud-tags" id="tags">
+     <a href="/tags/C/" style="font-size: 16px; color: #fff">C++</a> <a href="/tags/html/" style="font-size: 16px; color: #fff">html</a> <a href="/tags/javascript/" style="font-size: 16px; color: #fff">javascript</a> <a href="/tags/pat/" style="font-size: 16px; color: #fff">pat</a> <a href="/tags/sql/" style="font-size: 16px; color: #fff">sql</a> <a href="/tags/ssr/" style="font-size: 16px; color: #fff">ssr</a> <a href="/tags/vue-js/" style="font-size: 16px; color: #fff">vue.js</a> <a href="/tags/wordpress/" style="font-size: 16px; color: #fff">wordpress</a> <a href="/tags/前端/" style="font-size: 16px; color: #fff">前端</a> <a href="/tags/博客/" style="font-size: 16px; color: #fff">博客</a> <a href="/tags/微信小程序/" style="font-size: 16px; color: #fff">微信小程序</a> <a href="/tags/教程/" style="font-size: 16px; color: #fff">教程</a> <a href="/tags/日记/" style="font-size: 16px; color: #fff">日记</a> <a href="/tags/水文/" style="font-size: 16px; color: #fff">水文</a> <a href="/tags/算法/" style="font-size: 16px; color: #fff">算法</a> <a href="/tags/资源/" style="font-size: 16px; color: #fff">资源</a> <a href="/tags/邻家酒肆/" style="font-size: 16px; color: #fff">邻家酒肆</a> <a href="/tags/随想/" style="font-size: 16px; color: #fff">随想</a>
+   </div>
+ </div>
+ <br>
+ 
+ <script type="text/javascript">
+  // window.onload=function(){
+    var alltags=document.getElementById('tags');
+    var tags=alltags.getElementsByTagName('a');
+
+    for (var i = tags.length - 1; i >= 0; i--) {
+      var r=Math.floor(Math.random()*75+130);
+      var g=Math.floor(Math.random()*75+100);
+      var b=Math.floor(Math.random()*75+80);
+      tags[i].style.background = "rgb("+r+","+g+","+b+")";
+    }
+  // }
+
+ </script>
+
+ <div class="a2a_kit a2a_kit_size_24 a2a_floating_style a2a_vertical_style" data-a2a-scroll-show="1500" style="left:0px; bottom:80px;">
+<a class="a2a_button_qzone"></a>
+<a class="a2a_button_sina_weibo"></a>
+<a class="a2a_button_wechat"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments" >
+    </div>
+  
+
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars1.githubusercontent.com/u/37113068?s=460&v=4"
+                alt="兰州小红鸡" />
+            
+              <p class="site-author-name" itemprop="name">兰州小红鸡</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">110</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/rss.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element" align="center" item-align="center" align-content="center">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/flymysql" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:flymysql@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/237199972/home?wvr=5" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/sinx2018" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">¶问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dijkstra算法的解题思想"><span class="nav-number">2.</span> <span class="nav-text">¶Dijkstra算法的解题思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体步骤"><span class="nav-number">3.</span> <span class="nav-text">¶具体步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-代码"><span class="nav-number">4.</span> <span class="nav-text">¶C++代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-11-24更新"><span class="nav-number">5.</span> <span class="nav-text">¶2018-11-24更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部分javascript代码"><span class="nav-number">6.</span> <span class="nav-text">¶部分javascript代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">闽ICP备18025365号&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">兰州小红鸡</span>
+
+  
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"> 
+      </i>
+    </span>
+    
+      <span class="post-meta-item-text">已经写了</span>
+    
+    <span title="Site words total count">141.2k字</span>
+  
+</div>
+
+
+  
+
+
+
+  <span class="post-meta-divider" style="text-align: left;">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275378430'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1275378430%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+<a href="https://leancloud.cn/dashboard/data.html?appid=CODUI37tPwbXtbN2NzB64mhy-gzGzoHsz#/Counter">我爱你</a>,
+<a href="https://flymysql.leanapp.cn/comments">再见！</a></span>
+
+
+
+
+  
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/custom.js?v=5.1.4"></script>
+
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="/js/src/valine.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'CODUI37tPwbXtbN2NzB64mhy-gzGzoHsz',
+        appKey: 'zM95HhjgwuUXtm9jsasnKFyr',
+        placeholder: '✍撰写评论...',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("CODUI37tPwbXtbN2NzB64mhy-gzGzoHsz", "zM95HhjgwuUXtm9jsasnKFyr");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击 -->
+ <script>
+ !function(e,t,a){function r(){for(var e=0;e<n.length;e++)n[e].alpha<=0?(t.body.removeChild(n[e].el),n.splice(e,1)):(n[e].y--,n[e].scale+=.004,n[e].alpha-=.013,n[e].el.style.cssText="left:"+n[e].x+"px;top:"+n[e].y+"px;opacity:"+n[e].alpha+";transform:scale("+n[e].scale+","+n[e].scale+") rotate(45deg);background:"+n[e].color+";z-index:99999");requestAnimationFrame(r)}var n=[];e.requestAnimationFrame=e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)},function(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),function(){var a="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){a&&a(),function(e){var a=t.createElement("div");a.className="heart",n.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}),t.body.appendChild(a)}(e)}}(),r()}(window,document);
+
+</script>
+<script type="text/javascript">
+	function warning()
+	{ 
+		if(navigator.userAgent.indexOf("MSIE")>0) 
+		{ 
+			art.dialog.alert("复 制 成 功 ！   \n\n若 要 转 载 请 务 必 保 留 原 文 链 接 ！\n注 明 作 者 及 来 源 \n\n谢 谢 合 作 ！      (๑•̀ㅂ•́)و✧"); 
+		} 
+		else 
+		{ 
+			alert("复 制 成 功 ！   \n\n若 要 转 载 请 务 必 保 留 原 文 链 接 ！\n注 明 作 者 及 来 源 \n\n谢 谢 合 作 ！      (๑•̀ㅂ•́)و✧"); 
+		}
+}
+document.body.oncopy=function()
+{
+	warning();
+}
+
+document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState == 'hidden') {
+        normal_title = document.title;
+        document.title = '你知道hello world有几种写法？';
+    } else document.title = normal_title;
+});
+
+</script> 
+
+
+
+
+</body>
+</html>
