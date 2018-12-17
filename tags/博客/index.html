@@ -18,7 +18,6 @@
   <meta name="keywords" content="兰州小红鸡" />
 
 
-
 <style>
 
 
@@ -451,7 +450,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  412
+                  402
                 </span>
               
 
@@ -719,10 +718,9 @@
           <h2 id="设计特点"><a class="header-anchor" href="#设计特点">¶</a>设计特点</h2>
 <blockquote>
 <p><strong>轮播图UI：模仿简书</strong>可以直接在每篇文章的md文件里设置是否要设为轮播图的文章<br>
-就是我们每次新写一篇文章，用hexo生成一个md文件，我们只要在头部注明是否要作为轮播图的文章<br>
-比如这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: hexo建站笔记之首页文章轮播图</span><br><span class="line">carousel: true					//是否设为轮播图</span><br><span class="line">img: https://轮播图的图片			//轮播图图片链接</span><br><span class="line">date: 2018-11-13 15:25:40</span><br><span class="line">updated: 2018-11-13 15:25:40</span><br><span class="line">tags: 博客</span><br><span class="line">categories: 博客</span><br></pre></td></tr></table></figure>
+就是我们每次新写一篇文章，用hexo生成一个md文件，我们只要在头部注明是否要作为轮播图的文章比如这样：</p>
 </blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: hexo建站笔记之首页文章轮播图</span><br><span class="line">carousel: true					//是否设为轮播图</span><br><span class="line">img: https://轮播图的图片			//轮播图图片链接</span><br><span class="line">date: 2018-11-13 15:25:40</span><br><span class="line">updated: 2018-11-13 15:25:40</span><br><span class="line">tags: 博客</span><br><span class="line">categories: 博客</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/6bf81741.html#more" rel="contents">
@@ -1129,7 +1127,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  785
+                  786
                 </span>
               
 
@@ -1361,7 +1359,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  982
+                  400
                 </span>
               
 
@@ -1377,7 +1375,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  1
                 </span>
               
             </span>
@@ -1401,7 +1399,10 @@
         
           <p><strong>这两天花了点时间修改了下自己的next主题的博客</strong></p>
 <p>样式表放在了GitHub上喜欢的话可以直接使用<br>
-<a href="https://github.com/flymysql/hexo-theme-next-flyme" target="_blank" rel="noopener">https://github.com/flymysql/hexo-theme-next-flyme</a></p>
+<a target="_blank" href="https://github.com/flymysql/hexo-theme-next-flyme" class="LinkCard"><br>
+next博客主题样式修改<br>
+</a></p>
+<script type="text/javascript" src="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/linkcard.js"></script>
 <p>使用方法</p>
 <ul>
 <li>直接下载<a href="https://github.com/flymysql/hexo-theme-next-flyme" target="_blank" rel="noopener">样式表</a>，然后复制到自己主题的themes\next\source\css_custom目录下的custom.styl文件</li>
@@ -2195,7 +2196,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">110</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2206,7 +2207,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2217,7 +2218,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2312,7 +2313,7 @@
     
       <span class="post-meta-item-text">已经写了</span>
     
-    <span title="Site words total count">141.2k字</span>
+    <span title="Site words total count">141.1k字</span>
   
 </div>
 
@@ -2980,10 +2981,15 @@ document.addEventListener('visibilitychange', function () {
     } else document.title = normal_title;
 });
 
+//固定mian的宽度
+var mainner=document.getElementsByClassName('main-inner');
+//console.log(mainner);
+var mainwidth=mainner[0].offsetWidth;
+mainner[0].style.width=mainwidth+'px';
+console.log(mainwidth);
+
+
+
 </script> 
-
-
-
-
 </body>
 </html>

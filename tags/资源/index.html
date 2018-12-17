@@ -18,7 +18,6 @@
   <meta name="keywords" content="兰州小红鸡" />
 
 
-
 <style>
 
 
@@ -451,7 +450,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  709
+                  778
                 </span>
               
 
@@ -490,10 +489,7 @@
       
         
           <p>在知乎上看到这个推荐，平常一直想要个能录制屏幕的小软件，之前页用过挺多类似的，不过感觉操作都不方便，这个用了一下，感觉还不错哈哈</p>
-<h2 id="screentogif"><a class="header-anchor" href="#screentogif">¶</a>ScreenToGif</h2>
-<p>下面先秀一下我的wsl界面</p>
-<p><img src="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/blog/18121501.gif" alt="兰州小红鸡"></p>
-<p><strong>下面是作者的原文</strong></p>
+<p><strong>ScreenToGif</strong></p>
 <p>经常会遇到一些场景，需要你向别人展示一些操作或是效果——例如告诉别人某某软件的配置步骤啊、刚某个动画效果怎么样啊、某某电影里面的一个镜头多么经典啊、打得大快人心的NBA绝杀瞬间是怎么回事啊，等等…. 这些场合，如果单纯截成图片有时难以说清楚，但录成视频又不方便在社交软件上传播，这时就需要一个能够生成动态图的软件</p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -2590,7 +2586,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">110</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2601,7 +2597,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2612,7 +2608,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2707,7 +2703,7 @@
     
       <span class="post-meta-item-text">已经写了</span>
     
-    <span title="Site words total count">141.2k字</span>
+    <span title="Site words total count">141.1k字</span>
   
 </div>
 
@@ -3375,10 +3371,15 @@ document.addEventListener('visibilitychange', function () {
     } else document.title = normal_title;
 });
 
+//固定mian的宽度
+var mainner=document.getElementsByClassName('main-inner');
+//console.log(mainner);
+var mainwidth=mainner[0].offsetWidth;
+mainner[0].style.width=mainwidth+'px';
+console.log(mainwidth);
+
+
+
 </script> 
-
-
-
-
 </body>
 </html>

@@ -18,9 +18,6 @@
   <meta name="keywords" content="使用腾讯云cdn加速博客" />
 
 
-
-<meta name="description" content="使用腾讯云cdn加速博客" />
-
 <style>
 
 
@@ -439,7 +436,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  412
+                  402
                 </span>
               
 
@@ -505,14 +502,18 @@
 <p>每次更新博客内容完后，都要登陆腾讯云后台手动刷新一下CDN<br>
 这样未免也太麻烦</p>
 <p>所以用腾讯云官方给的api做了个脚本用来每次更新博客内容后，自动刷新CDN</p>
-<p><a href="https://github.com/QCloudCDN/CDN_API_DEMO/tree/master/Qcloud_CDN_API/nodejs" target="_blank" rel="noopener">https://github.com/QCloudCDN/CDN_API_DEMO/tree/master/Qcloud_CDN_API/nodejs</a></p>
+<a target="_blank" href="https://github.com/QCloudCDN/CDN_API_DEMO/tree/master/Qcloud_CDN_API/nodejs" class="LinkCard">
+腾讯云cdn官方文档
+</a>
 <p>上面时官方的node.js版本的api</p>
 <p>安装（在博客根目录执行）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install qcloud-cdn-node-sdk --save</span><br></pre></td></tr></table></figure>
 <p>然后在主题的script文件夹下，创建脚本qcloudcdn.js</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> qcloudSDK = <span class="built_in">require</span>(<span class="string">'qcloud-cdn-node-sdk'</span>);</span><br><span class="line"></span><br><span class="line">qcloudSDK.config(&#123;</span><br><span class="line">    secretId: <span class="string">'你的ID'</span>,</span><br><span class="line">    secretKey: <span class="string">'你的密钥'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">qcloudSDK.request(<span class="string">'RefreshCdnDir'</span>, &#123;</span><br><span class="line">	<span class="string">'dirs.1'</span>: <span class="string">'http://博客地址'</span> </span><br><span class="line">&#125;, (res) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>官方api文档<br>
-<a href="https://github.com/QCloudCDN/CDN_API_SDK/blob/master/README.md" target="_blank" rel="noopener">https://github.com/QCloudCDN/CDN_API_SDK/blob/master/README.md</a></p>
+<a target="_blank" href="https://github.com/QCloudCDN/CDN_API_SDK/blob/master/README.md" class="LinkCard">
+官方api文档
+</a>
+<script type="text/javascript" src="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/linkcard.js"></script>
 <p><strong>穹妹镇楼</strong></p>
 <p><img src="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/blog/up/112211.png" alt="兰州小红鸡"></p>
 
@@ -648,10 +649,10 @@
   <div class="tag-cloud">
 
    <!-- <div class="tag-cloud-title">
-       目前共计 18 个标签
+       目前共计 19 个标签
    </div> -->
    <div class="tag-cloud-tags" id="tags">
-     <a href="/tags/C/" style="font-size: 16px; color: #fff">C++</a> <a href="/tags/html/" style="font-size: 16px; color: #fff">html</a> <a href="/tags/javascript/" style="font-size: 16px; color: #fff">javascript</a> <a href="/tags/pat/" style="font-size: 16px; color: #fff">pat</a> <a href="/tags/sql/" style="font-size: 16px; color: #fff">sql</a> <a href="/tags/ssr/" style="font-size: 16px; color: #fff">ssr</a> <a href="/tags/vue-js/" style="font-size: 16px; color: #fff">vue.js</a> <a href="/tags/wordpress/" style="font-size: 16px; color: #fff">wordpress</a> <a href="/tags/前端/" style="font-size: 16px; color: #fff">前端</a> <a href="/tags/博客/" style="font-size: 16px; color: #fff">博客</a> <a href="/tags/微信小程序/" style="font-size: 16px; color: #fff">微信小程序</a> <a href="/tags/教程/" style="font-size: 16px; color: #fff">教程</a> <a href="/tags/日记/" style="font-size: 16px; color: #fff">日记</a> <a href="/tags/水文/" style="font-size: 16px; color: #fff">水文</a> <a href="/tags/算法/" style="font-size: 16px; color: #fff">算法</a> <a href="/tags/资源/" style="font-size: 16px; color: #fff">资源</a> <a href="/tags/邻家酒肆/" style="font-size: 16px; color: #fff">邻家酒肆</a> <a href="/tags/随想/" style="font-size: 16px; color: #fff">随想</a>
+     <a href="/tags/C/" style="font-size: 16px; color: #fff">C++</a> <a href="/tags/css/" style="font-size: 16px; color: #fff">css</a> <a href="/tags/html/" style="font-size: 16px; color: #fff">html</a> <a href="/tags/javascript/" style="font-size: 16px; color: #fff">javascript</a> <a href="/tags/pat/" style="font-size: 16px; color: #fff">pat</a> <a href="/tags/sql/" style="font-size: 16px; color: #fff">sql</a> <a href="/tags/ssr/" style="font-size: 16px; color: #fff">ssr</a> <a href="/tags/vue-js/" style="font-size: 16px; color: #fff">vue.js</a> <a href="/tags/wordpress/" style="font-size: 16px; color: #fff">wordpress</a> <a href="/tags/前端/" style="font-size: 16px; color: #fff">前端</a> <a href="/tags/博客/" style="font-size: 16px; color: #fff">博客</a> <a href="/tags/微信小程序/" style="font-size: 16px; color: #fff">微信小程序</a> <a href="/tags/教程/" style="font-size: 16px; color: #fff">教程</a> <a href="/tags/日记/" style="font-size: 16px; color: #fff">日记</a> <a href="/tags/水文/" style="font-size: 16px; color: #fff">水文</a> <a href="/tags/算法/" style="font-size: 16px; color: #fff">算法</a> <a href="/tags/资源/" style="font-size: 16px; color: #fff">资源</a> <a href="/tags/邻家酒肆/" style="font-size: 16px; color: #fff">邻家酒肆</a> <a href="/tags/随想/" style="font-size: 16px; color: #fff">随想</a>
    </div>
  </div>
  <br>
@@ -735,7 +736,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">110</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -746,7 +747,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -757,7 +758,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -852,7 +853,7 @@
     
       <span class="post-meta-item-text">已经写了</span>
     
-    <span title="Site words total count">141.2k字</span>
+    <span title="Site words total count">141.1k字</span>
   
 </div>
 
@@ -1524,10 +1525,15 @@ document.addEventListener('visibilitychange', function () {
     } else document.title = normal_title;
 });
 
+//固定mian的宽度
+var mainner=document.getElementsByClassName('main-inner');
+//console.log(mainner);
+var mainwidth=mainner[0].offsetWidth;
+mainner[0].style.width=mainwidth+'px';
+console.log(mainwidth);
+
+
+
 </script> 
-
-
-
-
 </body>
 </html>

@@ -18,9 +18,6 @@
   <meta name="keywords" content="Dijkstra单源最短路径算法" />
 
 
-
-<meta name="description" content="Dijkstra单源最短路径算法" />
-
 <style>
 
 
@@ -94,19 +91,19 @@
 
 
 
-<meta name="description" content="算法动态演示地址:https://me.idealli.com/others/Dijkstra.html 今天用c++撸了一遍Dijkstra单源最短路径算法，做个记录 先看下算法的描述  ¶问题描述 给定一个带权有向图 G=(V,E) ，其中每条边的权是一个非负实数。另外，还给定 V 中的一个顶点，称为源。现在我们要计算从源到所有其他各顶点的最短路径长度。这里的长度是指路上各边权之和。这个问题">
+<meta name="description" content="算法动态演示地址 今天用c++撸了一遍Dijkstra单源最短路径算法，做个记录,先看下算法的描述	  ¶问题描述 给定一个带权有向图 G=(V,E) ，其中每条边的权是一个非负实数。另外，还给定 V 中的一个顶点，称为源。现在我们要计算从源到所有其他各顶点的最短路径长度。这里的长度是指路上各边权之和。这个问题通常称为单源最短路径问题。 Dijkstra算法的解决方案 Dijkstra提出按各顶">
 <meta name="keywords" content="Dijkstra单源最短路径算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dijkstra单源最短路径算法">
 <meta property="og:url" content="https://me.idealli.com/post/15e41f53.html">
 <meta property="og:site_name" content="兰州小红鸡">
-<meta property="og:description" content="算法动态演示地址:https://me.idealli.com/others/Dijkstra.html 今天用c++撸了一遍Dijkstra单源最短路径算法，做个记录 先看下算法的描述  ¶问题描述 给定一个带权有向图 G=(V,E) ，其中每条边的权是一个非负实数。另外，还给定 V 中的一个顶点，称为源。现在我们要计算从源到所有其他各顶点的最短路径长度。这里的长度是指路上各边权之和。这个问题">
+<meta property="og:description" content="算法动态演示地址 今天用c++撸了一遍Dijkstra单源最短路径算法，做个记录,先看下算法的描述	  ¶问题描述 给定一个带权有向图 G=(V,E) ，其中每条边的权是一个非负实数。另外，还给定 V 中的一个顶点，称为源。现在我们要计算从源到所有其他各顶点的最短路径长度。这里的长度是指路上各边权之和。这个问题通常称为单源最短路径问题。 Dijkstra算法的解决方案 Dijkstra提出按各顶">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/blog/112401.png">
 <meta property="og:updated_time" content="2018-11-23T09:32:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dijkstra单源最短路径算法">
-<meta name="twitter:description" content="算法动态演示地址:https://me.idealli.com/others/Dijkstra.html 今天用c++撸了一遍Dijkstra单源最短路径算法，做个记录 先看下算法的描述  ¶问题描述 给定一个带权有向图 G=(V,E) ，其中每条边的权是一个非负实数。另外，还给定 V 中的一个顶点，称为源。现在我们要计算从源到所有其他各顶点的最短路径长度。这里的长度是指路上各边权之和。这个问题">
+<meta name="twitter:description" content="算法动态演示地址 今天用c++撸了一遍Dijkstra单源最短路径算法，做个记录,先看下算法的描述	  ¶问题描述 给定一个带权有向图 G=(V,E) ，其中每条边的权是一个非负实数。另外，还给定 V 中的一个顶点，称为源。现在我们要计算从源到所有其他各顶点的最短路径长度。这里的长度是指路上各边权之和。这个问题通常称为单源最短路径问题。 Dijkstra算法的解决方案 Dijkstra提出按各顶">
 <meta name="twitter:image" content="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/blog/112401.png">
 
 
@@ -476,11 +473,10 @@
       
 
       
-        <blockquote>
-<p>算法动态演示地址:<a href="https://me.idealli.com/others/Dijkstra.html">https://me.idealli.com/others/Dijkstra.html</a><br>
-今天用<code>c++</code>撸了一遍Dijkstra单源最短路径算法，做个记录<br>
-先看下算法的描述</p>
-</blockquote>
+        <p class="note">
+<a href="https://me.idealli.com/others/Dijkstra.html">算法动态演示地址</a>
+今天用c++撸了一遍Dijkstra单源最短路径算法，做个记录,先看下算法的描述	
+</p>
 <h3 id="问题描述"><a class="header-anchor" href="#问题描述">¶</a>问题描述</h3>
 <p>给定一个带权有向图 G=(V,E) ，其中每条边的权是一个非负实数。另外，还给定 V 中的一个顶点，称为源。现在我们要计算从源到所有其他各顶点的最短路径长度。这里的长度是指路上各边权之和。这个问题通常称为单源最短路径问题。<br>
 Dijkstra算法的解决方案</p>
@@ -512,9 +508,12 @@ Dijkstra算法的解决方案</p>
 </p>
 <h3 id="2018-11-24更新"><a class="header-anchor" href="#2018-11-24更新">¶</a>2018-11-24更新</h3>
 <blockquote>
-<p>花了一早上写了<code>js</code>版本的，并能够动态演示过程<br>
-演示地址:<a href="https://me.idealli.com/others/Dijkstra.html">https://me.idealli.com/others/Dijkstra.html</a></p>
+<p>花了一早上写了<code>js</code>版本的，并能够动态演示过程</p>
 </blockquote>
+<a target="_blank" href="https://me.idealli.com/others/Dijkstra.html" class="LinkCard">
+演示地址
+</a>
+<script type="text/javascript" src="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/linkcard.js"></script>
 <p><img src="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/blog/112401.png" alt="兰州小红鸡"></p>
 <h3 id="部分javascript代码"><a class="header-anchor" href="#部分javascript代码">¶</a>部分javascript代码</h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var MaxvertextType = <span class="number">100</span></span><br><span class="line">var gigantic = <span class="number">99999</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//邻接矩阵</span></span><br><span class="line"><span class="function">function <span class="title">Mgraph</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.vex=<span class="keyword">new</span> Array();</span><br><span class="line">    <span class="keyword">this</span>.edge=<span class="keyword">new</span> Array();</span><br><span class="line">    <span class="keyword">this</span>.vexnum=MaxvertextType;</span><br><span class="line">    <span class="keyword">this</span>.arcnum=MaxvertextType;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">function <span class="title">getVex</span><span class="params">(G,x)</span></span>&#123;</span><br><span class="line">    var i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;G.vex[i]!=x;i++);</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//单源最短路径算法</span></span><br><span class="line"><span class="function">function <span class="title">Dijkstra</span><span class="params">(g,x)</span></span>&#123;</span><br><span class="line">    var vexnum=g.vexnum;</span><br><span class="line">    var vex=getVex(g,x);</span><br><span class="line">    var dist= <span class="keyword">new</span> Array();</span><br><span class="line">    var path = <span class="keyword">new</span> Array();</span><br><span class="line">    path[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (var i = <span class="number">0</span>; i &lt; vexnum; ++i) &#123;</span><br><span class="line">        dist[i]=g.edge[vex][i];</span><br><span class="line">        <span class="keyword">if</span>(dist[i]!=gigantic)path[i]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    var S = <span class="keyword">new</span> Array();</span><br><span class="line">    S[<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">    var dd;</span><br><span class="line">    var dvex=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (var j = <span class="number">0</span>; j &lt; vexnum-<span class="number">1</span>; ++j) &#123;</span><br><span class="line">        dd=gigantic;</span><br><span class="line">        <span class="keyword">for</span> (var i = <span class="number">1</span>; i &lt; vexnum; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(dist[i]&lt;dd &amp;&amp; !S[i]) &#123;</span><br><span class="line">                dd=dist[i];</span><br><span class="line">                dvex=i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        S[dvex]= <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (var k = <span class="number">1</span>; k &lt; vexnum; ++k) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!S[k])&#123;</span><br><span class="line">                <span class="keyword">if</span> (dist[dvex]+g.edge[dvex][k]&lt;dist[k]) &#123;</span><br><span class="line">                    dist[k] = dist[dvex] + g.edge[dvex][k];</span><br><span class="line">                    path[k] = dvex;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (var m = <span class="number">1</span>; m &lt; vexnum; ++m) &#123;</span><br><span class="line">        var nowvex=m;</span><br><span class="line">        var str=<span class="string">"\npath:"</span>+g.vex[nowvex];</span><br><span class="line">        <span class="keyword">while</span>(path[nowvex]!=<span class="number">0</span>)&#123;</span><br><span class="line">            nowvex=path[nowvex];</span><br><span class="line">            str=str+<span class="string">"&lt;-"</span>+g.vex[nowvex];</span><br><span class="line">        &#125;</span><br><span class="line">        str=str+<span class="string">"&lt;-"</span>+g.vex[<span class="number">0</span>]+<span class="string">"\tdistance:"</span>+dist[m];</span><br><span class="line">        console.log(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//图的初始化</span></span><br><span class="line"><span class="function">function <span class="title">init</span><span class="params">(g)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(var i=<span class="number">0</span>;i&lt;g.vexnum;i++)&#123;</span><br><span class="line">        var temp=[];</span><br><span class="line">        <span class="keyword">for</span> (var j = <span class="number">0</span>; j &lt; g.vexnum; ++j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i==j) temp[j]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> temp[j]=gigantic;</span><br><span class="line">        &#125;</span><br><span class="line">        g.edge[i]=temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -591,19 +590,19 @@ Dijkstra算法的解决方案</p>
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag">📜 C++</a>
+            <a href="/tags/前端/" rel="tag">📜 前端</a>
          
           
-            <a href="/tags/算法/" rel="tag">📜 算法</a>
+            <a href="/tags/javascript/" rel="tag">📜 javascript</a>
          
           
             <a href="/tags/html/" rel="tag">📜 html</a>
          
           
-            <a href="/tags/前端/" rel="tag">📜 前端</a>
+            <a href="/tags/算法/" rel="tag">📜 算法</a>
          
           
-            <a href="/tags/javascript/" rel="tag">📜 javascript</a>
+            <a href="/tags/C/" rel="tag">📜 C++</a>
          
           
 
@@ -660,10 +659,10 @@ Dijkstra算法的解决方案</p>
   <div class="tag-cloud">
 
    <!-- <div class="tag-cloud-title">
-       目前共计 18 个标签
+       目前共计 19 个标签
    </div> -->
    <div class="tag-cloud-tags" id="tags">
-     <a href="/tags/C/" style="font-size: 16px; color: #fff">C++</a> <a href="/tags/html/" style="font-size: 16px; color: #fff">html</a> <a href="/tags/javascript/" style="font-size: 16px; color: #fff">javascript</a> <a href="/tags/pat/" style="font-size: 16px; color: #fff">pat</a> <a href="/tags/sql/" style="font-size: 16px; color: #fff">sql</a> <a href="/tags/ssr/" style="font-size: 16px; color: #fff">ssr</a> <a href="/tags/vue-js/" style="font-size: 16px; color: #fff">vue.js</a> <a href="/tags/wordpress/" style="font-size: 16px; color: #fff">wordpress</a> <a href="/tags/前端/" style="font-size: 16px; color: #fff">前端</a> <a href="/tags/博客/" style="font-size: 16px; color: #fff">博客</a> <a href="/tags/微信小程序/" style="font-size: 16px; color: #fff">微信小程序</a> <a href="/tags/教程/" style="font-size: 16px; color: #fff">教程</a> <a href="/tags/日记/" style="font-size: 16px; color: #fff">日记</a> <a href="/tags/水文/" style="font-size: 16px; color: #fff">水文</a> <a href="/tags/算法/" style="font-size: 16px; color: #fff">算法</a> <a href="/tags/资源/" style="font-size: 16px; color: #fff">资源</a> <a href="/tags/邻家酒肆/" style="font-size: 16px; color: #fff">邻家酒肆</a> <a href="/tags/随想/" style="font-size: 16px; color: #fff">随想</a>
+     <a href="/tags/C/" style="font-size: 16px; color: #fff">C++</a> <a href="/tags/css/" style="font-size: 16px; color: #fff">css</a> <a href="/tags/html/" style="font-size: 16px; color: #fff">html</a> <a href="/tags/javascript/" style="font-size: 16px; color: #fff">javascript</a> <a href="/tags/pat/" style="font-size: 16px; color: #fff">pat</a> <a href="/tags/sql/" style="font-size: 16px; color: #fff">sql</a> <a href="/tags/ssr/" style="font-size: 16px; color: #fff">ssr</a> <a href="/tags/vue-js/" style="font-size: 16px; color: #fff">vue.js</a> <a href="/tags/wordpress/" style="font-size: 16px; color: #fff">wordpress</a> <a href="/tags/前端/" style="font-size: 16px; color: #fff">前端</a> <a href="/tags/博客/" style="font-size: 16px; color: #fff">博客</a> <a href="/tags/微信小程序/" style="font-size: 16px; color: #fff">微信小程序</a> <a href="/tags/教程/" style="font-size: 16px; color: #fff">教程</a> <a href="/tags/日记/" style="font-size: 16px; color: #fff">日记</a> <a href="/tags/水文/" style="font-size: 16px; color: #fff">水文</a> <a href="/tags/算法/" style="font-size: 16px; color: #fff">算法</a> <a href="/tags/资源/" style="font-size: 16px; color: #fff">资源</a> <a href="/tags/邻家酒肆/" style="font-size: 16px; color: #fff">邻家酒肆</a> <a href="/tags/随想/" style="font-size: 16px; color: #fff">随想</a>
    </div>
  </div>
  <br>
@@ -756,7 +755,7 @@ Dijkstra算法的解决方案</p>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">110</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -767,7 +766,7 @@ Dijkstra算法的解决方案</p>
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -778,7 +777,7 @@ Dijkstra算法的解决方案</p>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -889,7 +888,7 @@ Dijkstra算法的解决方案</p>
     
       <span class="post-meta-item-text">已经写了</span>
     
-    <span title="Site words total count">141.2k字</span>
+    <span title="Site words total count">141.1k字</span>
   
 </div>
 
@@ -1561,10 +1560,15 @@ document.addEventListener('visibilitychange', function () {
     } else document.title = normal_title;
 });
 
+//固定mian的宽度
+var mainner=document.getElementsByClassName('main-inner');
+//console.log(mainner);
+var mainwidth=mainner[0].offsetWidth;
+mainner[0].style.width=mainwidth+'px';
+console.log(mainwidth);
+
+
+
 </script> 
-
-
-
-
 </body>
 </html>

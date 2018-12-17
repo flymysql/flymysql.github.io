@@ -18,7 +18,6 @@
   <meta name="keywords" content="兰州小红鸡" />
 
 
-
 <style>
 
 
@@ -674,7 +673,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  348
+                  342
                 </span>
               
 
@@ -712,8 +711,11 @@
 
       
         
-          <p><img src="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/blog/18112101.png" alt="兰州小红鸡"></p>
-<p><strong>悠哥穹妹镇楼</strong></p>
+          <p>上周去参加了院里举办的信息科技活动月，数字媒体技术比赛的答辩</p>
+<p>我做的是一个网站，庆祝兰大110周年校庆的主题网站</p>
+<p>答辩进展还挺顺利的</p>
+<p>结果一个老师问了个问题让我懵逼了好久</p>
+<p>一个老师问：<strong>你这个都没有看到有用js呀？</strong></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/post/2109459999.html#more" rel="contents">
@@ -1269,8 +1271,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-15T17:30:24+08:00">
-                2018-10-15
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-15T17:30:24+08:00">
+                2018-12-15
               </time>
             
           </span>
@@ -1341,7 +1343,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  253
+                  465
                 </span>
               
 
@@ -1379,11 +1381,10 @@
 
       
         
-          <blockquote>
-<p>今天给博客加了图床，毕竟不能老是往github床图片<br>
-看了几个国内的厂商，我的图片也不多，想要个免费的，并且有https<br>
-本来想要用七牛的，后来发现他https不是免费的</p>
-</blockquote>
+          <div class="note">今天给博客加了图床，毕竟不能老是往github床图片
+看了几个国内的厂商，我的图片也不多，想要个免费的，并且有https
+本来想要用七牛的，后来发现他https不是免费的
+</div>
 <p>最后还是选了腾讯云</p>
 <p>挺简单的，也可以用命令行直接上传文件，爽！<br>
 命令行配置下zsh的别名，轻松上传</p>
@@ -1719,7 +1720,7 @@ not happy !!!
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">110</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1730,7 +1731,7 @@ not happy !!!
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1741,7 +1742,7 @@ not happy !!!
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1836,7 +1837,7 @@ not happy !!!
     
       <span class="post-meta-item-text">已经写了</span>
     
-    <span title="Site words total count">141.2k字</span>
+    <span title="Site words total count">141.1k字</span>
   
 </div>
 
@@ -2504,10 +2505,15 @@ document.addEventListener('visibilitychange', function () {
     } else document.title = normal_title;
 });
 
+//固定mian的宽度
+var mainner=document.getElementsByClassName('main-inner');
+//console.log(mainner);
+var mainwidth=mainner[0].offsetWidth;
+mainner[0].style.width=mainwidth+'px';
+console.log(mainwidth);
+
+
+
 </script> 
-
-
-
-
 </body>
 </html>

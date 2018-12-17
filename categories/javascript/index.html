@@ -18,7 +18,6 @@
   <meta name="keywords" content="兰州小红鸡" />
 
 
-
 <style>
 
 
@@ -95,14 +94,13 @@
 <meta name="description" content="无人问津">
 <meta name="keywords" content="小鸡博客">
 <meta property="og:type" content="website">
-<meta property="og:title" content="schedule">
-<meta property="og:url" content="https://me.idealli.com/schedule/index.html">
+<meta property="og:title" content="兰州小红鸡">
+<meta property="og:url" content="https://me.idealli.com/categories/javascript/index.html">
 <meta property="og:site_name" content="兰州小红鸡">
 <meta property="og:description" content="无人问津">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-06T01:02:01.291Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="schedule">
+<meta name="twitter:title" content="兰州小红鸡">
 <meta name="twitter:description" content="无人问津">
 
 
@@ -133,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://me.idealli.com/schedule/"/>
+  <link rel="canonical" href="https://me.idealli.com/categories/javascript/"/>
 
 
 
 
 
-  <title>schedule | 兰州小红鸡</title>
+  <title>分类: javascript | 兰州小红鸡</title>
   
 
 
@@ -168,7 +166,7 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail">
+  <div class="container sidebar-position-right ">
     <div class="headband"></div>
   
 
@@ -304,36 +302,56 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-    
-    
-    <div class="post-block page">
-      <header class="post-header">
+  
+  
+  
+  <div class="post-block category">
 
-	<h2 class="post-title" itemprop="name headline">schedule</h2>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-        
-        
-          
-        
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h2>javascript<small>分类</small>
+        </h2>
       </div>
+
       
-      
+        
+
+  <article class="mypost" itemscope itemtype="http://schema.org/Article">
+    <header class="my-post-header">
+        <div class="my-post-meta">
+        <time class="my-post-time" itemprop="dateCreated"
+              datetime="2018-12-16T17:13:47+08:00"
+              content="2018-12-16" >
+          12-16
+        </time>
+      </div>
+
+      <h4 class="my-post-title">
+        
+            <a class="my-post-title-link" href="/post/a714f04b.html" itemprop="url">
+              
+                <span itemprop="name">模仿知乎的链接卡片</span>
+              
+            </a>
+        
+      </h4>
+
+
+
+    </header>
+  </article>
+
+
       
     </div>
-    
-    
-    
+
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -341,15 +359,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments" >
-    </div>
-  
-
-
-
-
 
 
         </div>
@@ -393,7 +402,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">110</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -404,7 +413,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -415,7 +424,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -510,7 +519,7 @@
     
       <span class="post-meta-item-text">已经写了</span>
     
-    <span title="Site words total count">141.2k字</span>
+    <span title="Site words total count">141.1k字</span>
   
 </div>
 
@@ -626,10 +635,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
@@ -1182,10 +1187,15 @@ document.addEventListener('visibilitychange', function () {
     } else document.title = normal_title;
 });
 
+//固定mian的宽度
+var mainner=document.getElementsByClassName('main-inner');
+//console.log(mainner);
+var mainwidth=mainner[0].offsetWidth;
+mainner[0].style.width=mainwidth+'px';
+console.log(mainwidth);
+
+
+
 </script> 
-
-
-
-
 </body>
 </html>

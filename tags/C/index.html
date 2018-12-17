@@ -18,7 +18,6 @@
   <meta name="keywords" content="兰州小红鸡" />
 
 
-
 <style>
 
 
@@ -489,11 +488,10 @@
 
       
         
-          <blockquote>
-<p>算法动态演示地址:<a href="https://me.idealli.com/others/Dijkstra.html">https://me.idealli.com/others/Dijkstra.html</a><br>
-今天用<code>c++</code>撸了一遍Dijkstra单源最短路径算法，做个记录<br>
-先看下算法的描述</p>
-</blockquote>
+          <p class="note">
+<a href="https://me.idealli.com/others/Dijkstra.html">算法动态演示地址</a>
+今天用c++撸了一遍Dijkstra单源最短路径算法，做个记录,先看下算法的描述	
+</p>
 <h3 id="问题描述"><a class="header-anchor" href="#问题描述">¶</a>问题描述</h3>
 <p>给定一个带权有向图 G=(V,E) ，其中每条边的权是一个非负实数。另外，还给定 V 中的一个顶点，称为源。现在我们要计算从源到所有其他各顶点的最短路径长度。这里的长度是指路上各边权之和。这个问题通常称为单源最短路径问题。<br>
 Dijkstra算法的解决方案</p>
@@ -835,7 +833,7 @@ Dijkstra算法的解决方案</p>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">110</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -846,7 +844,7 @@ Dijkstra算法的解决方案</p>
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -857,7 +855,7 @@ Dijkstra算法的解决方案</p>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -952,7 +950,7 @@ Dijkstra算法的解决方案</p>
     
       <span class="post-meta-item-text">已经写了</span>
     
-    <span title="Site words total count">141.2k字</span>
+    <span title="Site words total count">141.1k字</span>
   
 </div>
 
@@ -1620,10 +1618,15 @@ document.addEventListener('visibilitychange', function () {
     } else document.title = normal_title;
 });
 
+//固定mian的宽度
+var mainner=document.getElementsByClassName('main-inner');
+//console.log(mainner);
+var mainwidth=mainner[0].offsetWidth;
+mainner[0].style.width=mainwidth+'px';
+console.log(mainwidth);
+
+
+
 </script> 
-
-
-
-
 </body>
 </html>

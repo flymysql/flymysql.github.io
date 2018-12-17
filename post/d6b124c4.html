@@ -18,9 +18,6 @@
   <meta name="keywords" content="Windows下的终端折腾——弃坑msys2，开始用wsl" />
 
 
-
-<meta name="description" content="Windows下的终端折腾——弃坑msys2，开始用wsl" />
-
 <style>
 
 
@@ -104,6 +101,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1836534-05d8e85c3ba54a60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/799/format/webp">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1836534-780f6423bd5160f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/935/format/webp">
+<meta property="og:image" content="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/blog/18121501.gif">
 <meta property="og:image" content="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/blog/18121401.png">
 <meta property="og:updated_time" content="2018-12-14T02:50:18.000Z">
 <meta name="twitter:card" content="summary">
@@ -441,7 +439,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  865
+                  882
                 </span>
               
 
@@ -506,8 +504,14 @@
 <blockquote>
 <p>通过上面的步骤，已经启用了win10自带的linux子系统(WSL)，感觉逼格提升了不少。当然，怎么能满足于此呢，接下来就要做一些环境的配置和进一步的挖掘。</p>
 </blockquote>
+<p>下面先秀一下我的wsl界面</p>
+<p><img src="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/blog/18121501.gif" alt="兰州小红鸡"></p>
 <h2 id="更换数据源"><a class="header-anchor" href="#更换数据源">¶</a>更换数据源</h2>
-<p><a href="https://blog.csdn.net/sunnyliqian/article/details/50179915" target="_blank" rel="noopener">参考文章</a></p>
+<p>参考文章<br>
+<a target="_blank" href="https://blog.csdn.net/sunnyliqian/article/details/50179915" class="LinkCard"><br>
+更换apt数据源<br>
+</a></p>
+<script type="text/javascript" src="https://picture-1256429518.cos.ap-chengdu.myqcloud.com/linkcard.js"></script>
 <p>在Ubuntu或Debian下我们可以通过 apt-get 命令 很方便的安装/卸载软件，由于默认的软件包仓库是位于国外的，安装软件的时候就可能遇到各种网络问题或者下载到的一些资源不完整，因此就需要切换数据源为国内的镜像站点来改善。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 1.备份原来的数据源配置文件</span><br><span class="line">cp /etc/apt/sources.list /etc/apt/sources.list_backup</span><br><span class="line"><span class="meta">#</span> 2.编辑数据源配置文件</span><br><span class="line">vi /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 <p>在这里我使用的是阿里云的数据源：</p>
@@ -657,10 +661,10 @@
   <div class="tag-cloud">
 
    <!-- <div class="tag-cloud-title">
-       目前共计 18 个标签
+       目前共计 19 个标签
    </div> -->
    <div class="tag-cloud-tags" id="tags">
-     <a href="/tags/C/" style="font-size: 16px; color: #fff">C++</a> <a href="/tags/html/" style="font-size: 16px; color: #fff">html</a> <a href="/tags/javascript/" style="font-size: 16px; color: #fff">javascript</a> <a href="/tags/pat/" style="font-size: 16px; color: #fff">pat</a> <a href="/tags/sql/" style="font-size: 16px; color: #fff">sql</a> <a href="/tags/ssr/" style="font-size: 16px; color: #fff">ssr</a> <a href="/tags/vue-js/" style="font-size: 16px; color: #fff">vue.js</a> <a href="/tags/wordpress/" style="font-size: 16px; color: #fff">wordpress</a> <a href="/tags/前端/" style="font-size: 16px; color: #fff">前端</a> <a href="/tags/博客/" style="font-size: 16px; color: #fff">博客</a> <a href="/tags/微信小程序/" style="font-size: 16px; color: #fff">微信小程序</a> <a href="/tags/教程/" style="font-size: 16px; color: #fff">教程</a> <a href="/tags/日记/" style="font-size: 16px; color: #fff">日记</a> <a href="/tags/水文/" style="font-size: 16px; color: #fff">水文</a> <a href="/tags/算法/" style="font-size: 16px; color: #fff">算法</a> <a href="/tags/资源/" style="font-size: 16px; color: #fff">资源</a> <a href="/tags/邻家酒肆/" style="font-size: 16px; color: #fff">邻家酒肆</a> <a href="/tags/随想/" style="font-size: 16px; color: #fff">随想</a>
+     <a href="/tags/C/" style="font-size: 16px; color: #fff">C++</a> <a href="/tags/css/" style="font-size: 16px; color: #fff">css</a> <a href="/tags/html/" style="font-size: 16px; color: #fff">html</a> <a href="/tags/javascript/" style="font-size: 16px; color: #fff">javascript</a> <a href="/tags/pat/" style="font-size: 16px; color: #fff">pat</a> <a href="/tags/sql/" style="font-size: 16px; color: #fff">sql</a> <a href="/tags/ssr/" style="font-size: 16px; color: #fff">ssr</a> <a href="/tags/vue-js/" style="font-size: 16px; color: #fff">vue.js</a> <a href="/tags/wordpress/" style="font-size: 16px; color: #fff">wordpress</a> <a href="/tags/前端/" style="font-size: 16px; color: #fff">前端</a> <a href="/tags/博客/" style="font-size: 16px; color: #fff">博客</a> <a href="/tags/微信小程序/" style="font-size: 16px; color: #fff">微信小程序</a> <a href="/tags/教程/" style="font-size: 16px; color: #fff">教程</a> <a href="/tags/日记/" style="font-size: 16px; color: #fff">日记</a> <a href="/tags/水文/" style="font-size: 16px; color: #fff">水文</a> <a href="/tags/算法/" style="font-size: 16px; color: #fff">算法</a> <a href="/tags/资源/" style="font-size: 16px; color: #fff">资源</a> <a href="/tags/邻家酒肆/" style="font-size: 16px; color: #fff">邻家酒肆</a> <a href="/tags/随想/" style="font-size: 16px; color: #fff">随想</a>
    </div>
  </div>
  <br>
@@ -753,7 +757,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">110</span>
+                  <span class="site-state-item-count">111</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -764,7 +768,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -775,7 +779,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -886,7 +890,7 @@
     
       <span class="post-meta-item-text">已经写了</span>
     
-    <span title="Site words total count">141.2k字</span>
+    <span title="Site words total count">141.1k字</span>
   
 </div>
 
@@ -1558,10 +1562,15 @@ document.addEventListener('visibilitychange', function () {
     } else document.title = normal_title;
 });
 
+//固定mian的宽度
+var mainner=document.getElementsByClassName('main-inner');
+//console.log(mainner);
+var mainwidth=mainner[0].offsetWidth;
+mainner[0].style.width=mainwidth+'px';
+console.log(mainwidth);
+
+
+
 </script> 
-
-
-
-
 </body>
 </html>
